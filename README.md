@@ -1,43 +1,51 @@
+<p align="center">
+  <img src="./assets/frontend-vibe-suite-hero.svg" alt="Frontend Vibe Suite hero" width="100%" />
+</p>
+
+<p align="center">
+  <strong>Multimodal frontend workflow for Codex</strong><br />
+  Interview the style. Generate the concept. Translate the video. Build from a grounded UI brief.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/release-0.0.1-1f6feb" alt="release 0.0.1" />
+  <img src="https://img.shields.io/badge/plugin-Codex-0b1020" alt="Codex plugin" />
+  <img src="https://img.shields.io/badge/models-Wan2.7%20%2B%20Qwen%20Omni-54c7ec" alt="Wan and Qwen Omni" />
+  <img src="https://img.shields.io/badge/license-MIT-34d399" alt="MIT license" />
+</p>
+
 # Frontend Vibe Suite Plugin
 
-`frontend-vibe-suite-plugin` is a GitHub-ready local Codex plugin repository for a multimodal frontend workflow:
+`frontend-vibe-suite-plugin` packages a local Codex plugin that inserts a visual prototype loop into frontend vibecoding:
 
-1. interview for style and product intent
-2. generate Wan2.7 image and video prompts
+1. run a style interview
+2. generate Wan2.7 concept prompts
 3. create a short UI showcase video
-4. translate that video into a structured frontend brief with Qwen Omni
-5. hand the result into normal frontend coding skills
+4. translate that video with Qwen Omni
+5. hand a structured brief into normal coding workflows
 
-## Repository Layout
+## Why this exists
 
-```text
-.
-├── .agents/plugins/marketplace.json
-├── plugins/
-│   └── frontend-vibe-suite/
-│       ├── .codex-plugin/plugin.json
-│       ├── skills/
-│       ├── scripts/
-│       ├── examples/
-│       └── README.md
-├── .gitignore
-├── LICENSE
-└── README.md
-```
+Most frontend codegen jumps from a thin request straight into JSX and CSS. This repo adds a visual middle layer so implementation is anchored by:
 
-## Included Plugin
+- a clarified style brief
+- a generated visual artifact
+- a translated UI brief
+- an implementation handoff
 
-- `frontend-vibe-suite`
+That changes the workflow from "guess and build" to "design, read back, then build."
 
-The plugin bundles:
+## What ships in `0.0.1`
 
-- style interview workflow
-- prompt-pack generation
-- Wan wrapper runner
-- Qwen Omni video translation
-- implementation handoff generation
+- `frontend-style-interview` for multi-round style discovery
+- `render_prompt_pack.py` for Wan and Omni prompt generation
+- `run_visual_loop.py` for wrapping existing local Wan image and video skills
+- `video_to_ui_brief.py` for Qwen Omni video-to-UI translation
+- `build_handoff.py` for implementation-ready JSON and Markdown handoff files
+- example briefs and example generated artifacts
+- local marketplace metadata for Codex plugin loading
 
-## Local Usage
+## Quick Start
 
 From the repository root:
 
@@ -56,40 +64,67 @@ python3 plugins/frontend-vibe-suite/scripts/build_handoff.py \
   --output-md plugins/frontend-vibe-suite/examples/build-handoff.example.md
 ```
 
+## Workflow
+
+```text
+Style interview
+  -> Prompt pack
+  -> Wan image/video generation
+  -> Qwen Omni translation
+  -> Build handoff
+  -> Frontend implementation
+```
+
+## Repository Layout
+
+```text
+.
+├── .agents/plugins/marketplace.json
+├── assets/
+│   └── frontend-vibe-suite-hero.svg
+├── plugins/
+│   └── frontend-vibe-suite/
+│       ├── .codex-plugin/plugin.json
+│       ├── skills/
+│       ├── scripts/
+│       ├── examples/
+│       └── README.md
+├── CHANGELOG.md
+├── LICENSE
+└── README.md
+```
+
 ## Configuration
 
-Set `DASHSCOPE_API_KEY` before calling the Wan or Qwen scripts.
+Required:
+
+- `DASHSCOPE_API_KEY`
 
 Optional:
 
 - `DASHSCOPE_BASE_URL`
 - `QWEN_OMNI_MODEL`
 
-The plugin also ships `plugins/frontend-vibe-suite/.env.example`.
+Template env file:
 
-## GitHub Publishing
+- `plugins/frontend-vibe-suite/.env.example`
 
-This directory is already initialized as a git repository with branch `main`.
+## Limits in `0.0.1`
 
-Typical next steps:
+- video translation still expects a public `video_url`
+- the Wan wrapper reuses existing local Wan skills instead of shipping its own SDK client
+- implementation ends at handoff generation, not automatic code patching
+
+## Publish to GitHub
+
+This repository is already initialized locally on branch `main`.
 
 ```bash
 cd /Users/kkellyoffical/frontend-vibe-suite-plugin
-git add .
-git commit -m "Package multimodal frontend vibe workflow as a reusable Codex plugin"
 git remote add origin <your-github-repo-url>
-git push -u origin main
+git push -u origin main --tags
 ```
 
-If you want to publish it as open source, review:
+## License
 
-- plugin metadata
-- author fields
-- example assets
-- whether your local marketplace naming should stay `kkellyoffical-local`
-
-## Current Limits
-
-- media translation still expects a public `video_url`
-- the visual loop wrapper reuses existing local Wan skills instead of bundling its own SDK client
-- implementation is still handoff-driven, not direct code patch generation
+MIT

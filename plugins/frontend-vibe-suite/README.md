@@ -1,41 +1,44 @@
 # Frontend Vibe Suite
 
-`frontend-vibe-suite` is a local Codex plugin for a multimodal frontend workflow:
+`frontend-vibe-suite` adds a multimodal design loop to frontend development:
 
-1. interview for style, product, and interaction intent
-2. turn that brief into Wan2.7 image and video prompts
-3. generate a short design showcase video
-4. translate the video back into a structured UI brief with Qwen Omni
-5. hand the brief to implementation skills such as `frontend-skill`, `ui-ux-pro-max`, and `visual-verdict`
+1. clarify the visual direction with a style interview
+2. render prompts for Wan2.7
+3. generate concept frames or a short UI video
+4. translate the video back into frontend language with Qwen Omni
+5. generate a strict build handoff for downstream coding
 
-## Why this exists
+## Included
 
-Normal frontend codegen often jumps straight from a thin requirement to JSX and CSS.
-This plugin adds a visual prototype loop in the middle so the implementation is driven
-by an explicit design brief plus a machine-readable video interpretation.
+### Skills
 
-## Bundled Skills
+- `frontend-vibe-suite`
+- `frontend-style-interview`
+- `video-to-ui-brief`
+- `frontend-build-handoff`
 
-- `frontend-vibe-suite`: top-level orchestration workflow
-- `frontend-style-interview`: multi-angle style and requirement interview
-- `video-to-ui-brief`: translate a design video into natural language and structured JSON
-- `frontend-build-handoff`: merge the style brief and translated video brief into an implementation-ready handoff
-
-## Scripts
+### Scripts
 
 - `scripts/render_prompt_pack.py`
-  - turns a design brief JSON into prompt packs for Wan image/video generation, omni analysis, and build handoff
 - `scripts/run_visual_loop.py`
-  - reads a prompt pack and invokes the existing `wan27-image` and `wan27-video` skills to generate concept assets
 - `scripts/video_to_ui_brief.py`
-  - calls the DashScope OpenAI-compatible chat endpoint with a Qwen Omni model and asks for a structured UI brief from a video URL
 - `scripts/build_handoff.py`
-  - merges the original style brief and the translated video brief into a coding handoff in JSON and Markdown
+
+### Example files
+
+- `examples/frontend-style-brief.example.json`
+- `examples/frontend-prompt-pack.example.json`
+- `examples/video-ui-brief.example.json`
+- `examples/build-handoff.example.json`
+- `examples/build-handoff.example.md`
 
 ## Expected Workflow
 
-1. Run the `frontend-style-interview` skill until the style brief is specific enough.
-2. Save the brief as JSON and render a prompt pack:
+### 1. Build the style brief
+
+Run the interview workflow until product, surface, mood, density, anti-goals, and implementation constraints are specific enough to drive image and video generation.
+
+### 2. Render the prompt pack
 
 ```bash
 python3 plugins/frontend-vibe-suite/scripts/render_prompt_pack.py \
@@ -43,10 +46,9 @@ python3 plugins/frontend-vibe-suite/scripts/render_prompt_pack.py \
   --output path/to/frontend-prompt-pack.json
 ```
 
-A sample input brief lives at `plugins/frontend-vibe-suite/examples/frontend-style-brief.example.json`.
+### 3. Run the visual loop
 
-3. Use the generated prompts with your existing `wan27-image` and `wan27-video` skills.
-   Or run the wrapper:
+Use your existing `wan27-image` and `wan27-video` skills directly, or use the wrapper:
 
 ```bash
 python3 plugins/frontend-vibe-suite/scripts/run_visual_loop.py \
@@ -56,9 +58,9 @@ python3 plugins/frontend-vibe-suite/scripts/run_visual_loop.py \
   --video-output path/to/concept/showcase.mp4
 ```
 
-By default the wrapper uses `t2v`. If you switch to `i2v`, the current Wan video skill still expects public media URLs such as `--first-frame-url`, not local file paths.
+Default mode is `t2v`. In `i2v`, the wrapped Wan skill currently expects public URLs such as `--first-frame-url`.
 
-4. Feed the resulting video URL into the translator:
+### 4. Translate the video
 
 ```bash
 python3 plugins/frontend-vibe-suite/scripts/video_to_ui_brief.py \
@@ -67,7 +69,7 @@ python3 plugins/frontend-vibe-suite/scripts/video_to_ui_brief.py \
   --output path/to/video-ui-brief.json
 ```
 
-5. Build the coding handoff:
+### 5. Generate the coding handoff
 
 ```bash
 python3 plugins/frontend-vibe-suite/scripts/build_handoff.py \
@@ -78,28 +80,33 @@ python3 plugins/frontend-vibe-suite/scripts/build_handoff.py \
   --output-md path/to/build-handoff.md
 ```
 
-6. Continue implementation with your normal frontend coding skills using the handoff as the source of truth.
+Continue implementation with `frontend-skill`, `ui-ux-pro-max`, and `visual-verdict`.
 
 ## Configuration
 
-Set `DASHSCOPE_API_KEY` before calling the translator script.
+Required:
+
+- `DASHSCOPE_API_KEY`
 
 Optional:
 
-- `DASHSCOPE_BASE_URL`: defaults to `https://dashscope-intl.aliyuncs.com/compatible-mode/v1`
-- `QWEN_OMNI_MODEL`: defaults to `qwen3-omni-flash`
+- `DASHSCOPE_BASE_URL`
+- `QWEN_OMNI_MODEL`
 
-## Current Scope
+Template:
 
-- single-product design direction
+- `.env.example`
+
+## Scope in `0.0.1`
+
 - style brief generation
-- Wan prompt pack generation
-- wrapper for Wan generation via existing local skills
-- Qwen Omni video interpretation
-- implementation handoff generation for downstream coding
+- prompt-pack generation
+- wrapper for existing Wan skills
+- Qwen Omni translation over the DashScope OpenAI-compatible API
+- implementation handoff generation
 
-It does not yet automate:
+Not included yet:
 
-- local video upload hosting
-- Figma export or sync
-- automatic code patching from the translated brief
+- local media upload hosting
+- direct code patch generation from the translated brief
+- Figma or design tool sync
