@@ -1,0 +1,109 @@
+{
+  "product_context": {
+    "product": "AI operations dashboard",
+    "surface": "desktop-first web app",
+    "primary_goal": "help operators scan system health, spot anomalies, and act quickly",
+    "users": [
+      "ops lead",
+      "support engineer",
+      "founder reviewing status"
+    ]
+  },
+  "source_of_truth": {
+    "style_brief_priority": true,
+    "translated_video_brief_used": true,
+    "anti_goals": [
+      "marketing hero language",
+      "glassmorphism",
+      "oversized cards",
+      "purple-heavy palette"
+    ]
+  },
+  "visual_system": {
+    "brand_mood": [
+      "precise",
+      "calm",
+      "high-signal",
+      "premium"
+    ],
+    "layout_direction": "left navigation, wide workspace, compact top filters, right-side detail drawer",
+    "density": "dense but readable",
+    "color_direction": "charcoal base with cool neutral surfaces and one cyan action accent",
+    "typography_direction": "clean grotesk sans for UI with a tighter data-oriented scale",
+    "translated_tokens": {
+      "surface": "dark neutral",
+      "accent": "cyan",
+      "radius": "small",
+      "shadow": "minimal"
+    },
+    "translated_typography": [
+      "compact sans-serif headings",
+      "dense tabular numerals for metrics"
+    ],
+    "translated_color": [
+      "charcoal background",
+      "cool gray panels",
+      "cyan interactive highlights",
+      "red critical alert states"
+    ],
+    "translated_spacing": [
+      "tight vertical rhythm",
+      "consistent 16-24px section gaps"
+    ]
+  },
+  "implementation_requirements": {
+    "must_have": [
+      "status summary row",
+      "alerts timeline",
+      "chart area",
+      "task queue",
+      "detail drawer"
+    ],
+    "page_regions": [
+      "left navigation rail",
+      "top filter and status bar",
+      "primary chart workspace",
+      "alerts and task queue column",
+      "detail drawer"
+    ],
+    "components": [
+      "status chips",
+      "metric strip",
+      "line chart",
+      "alerts list",
+      "queue table",
+      "slide-over details panel"
+    ],
+    "interactions": [
+      "filter chips update active state",
+      "hover reveals richer data on charts",
+      "row click opens detail drawer"
+    ],
+    "motion": [
+      "short panel slide-in",
+      "chart value easing",
+      "subtle highlight pulse on critical rows"
+    ],
+    "implementation_hints": [
+      "good fit for Next.js with Tailwind",
+      "use CSS grid for workspace zones",
+      "preserve fixed widths for navigation and drawer"
+    ],
+    "technical_constraints": [
+      "Next.js app router",
+      "Tailwind CSS",
+      "desktop and tablet support",
+      "WCAG AA contrast"
+    ],
+    "acceptance_criteria": [
+      "operators can understand state in under 10 seconds",
+      "critical alerts are obvious without scrolling",
+      "layout remains stable with long labels"
+    ]
+  },
+  "open_questions": [
+    "mobile collapse behavior is not visible",
+    "chart tooltip content is implied but not fully shown"
+  ],
+  "coding_prompt": "Implement this frontend strictly from the translated UI brief and the original style brief.\nProduct: AI operations dashboard\nPrimary surface: desktop-first web app\nPrimary goal: help operators scan system health, spot anomalies, and act quickly\nTarget users: ops lead, support engineer, founder reviewing status\nBrand mood: precise, calm, high-signal, premium\nLayout direction: left navigation, wide workspace, compact top filters, right-side detail drawer\nDensity: dense but readable\nColor direction: charcoal base with cool neutral surfaces and one cyan action accent\nTypography direction: clean grotesk sans for UI with a tighter data-oriented scale\nMotion direction: short purposeful reveals, panel slides, subtle chart transitions\nContent tone: operational and direct\nVisual references: Linear, Stripe Dashboard\nMust-have elements:\n- status summary row\n- alerts timeline\n- chart area\n- task queue\n- detail drawer\nAnti-goals:\n- marketing hero language\n- glassmorphism\n- oversized cards\n- purple-heavy palette\nTechnical constraints:\n- Next.js app router\n- Tailwind CSS\n- desktop and tablet support\n- WCAG AA contrast\nAcceptance criteria:\n- operators can understand state in under 10 seconds\n- critical alerts are obvious without scrolling\n- layout remains stable with long labels\nPreserve the hierarchy, visual tone, motion attitude, and anti-goals. Do not improvise new product directions. Call out any ambiguity that remains after the video translation.\n\nImplement the approved frontend using the merged handoff below. Keep the layout, hierarchy, tokens, interactions, and anti-goals stable.\n\nStyle constraints:\n- status summary row\n- alerts timeline\n- chart area\n- task queue\n- detail drawer\n\nTranslated regions and components:\n- left navigation rail\n- top filter and status bar\n- primary chart workspace\n- alerts and task queue column\n- detail drawer\n- status chips\n- metric strip\n- line chart\n- alerts list\n- queue table\n- slide-over details panel"
+}

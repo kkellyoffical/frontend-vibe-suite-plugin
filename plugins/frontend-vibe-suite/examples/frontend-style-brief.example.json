@@ -1,0 +1,50 @@
+{
+  "product": "AI operations dashboard",
+  "surface": "desktop-first web app",
+  "primaryGoal": "help operators scan system health, spot anomalies, and act quickly",
+  "users": [
+    "ops lead",
+    "support engineer",
+    "founder reviewing status"
+  ],
+  "brandMood": [
+    "precise",
+    "calm",
+    "high-signal",
+    "premium"
+  ],
+  "visualReferences": [
+    "Linear",
+    "Stripe Dashboard"
+  ],
+  "layoutDirection": "left navigation, wide workspace, compact top filters, right-side detail drawer",
+  "density": "dense but readable",
+  "colorDirection": "charcoal base with cool neutral surfaces and one cyan action accent",
+  "typographyDirection": "clean grotesk sans for UI with a tighter data-oriented scale",
+  "motionDirection": "short purposeful reveals, panel slides, subtle chart transitions",
+  "contentTone": "operational and direct",
+  "mustHave": [
+    "status summary row",
+    "alerts timeline",
+    "chart area",
+    "task queue",
+    "detail drawer"
+  ],
+  "antiGoals": [
+    "marketing hero language",
+    "glassmorphism",
+    "oversized cards",
+    "purple-heavy palette"
+  ],
+  "technicalConstraints": [
+    "Next.js app router",
+    "Tailwind CSS",
+    "desktop and tablet support",
+    "WCAG AA contrast"
+  ],
+  "acceptanceCriteria": [
+    "operators can understand state in under 10 seconds",
+    "critical alerts are obvious without scrolling",
+    "layout remains stable with long labels"
+  ]
+}

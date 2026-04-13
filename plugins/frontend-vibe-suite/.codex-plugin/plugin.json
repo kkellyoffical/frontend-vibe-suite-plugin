@@ -1,0 +1,38 @@
+{
+  "name": "frontend-vibe-suite",
+  "version": "0.1.0",
+  "description": "A multimodal frontend development plugin that turns style interviews into Wan design videos, translates them with Qwen Omni, and hands a grounded brief back to implementation workflows.",
+  "author": {
+    "name": "kkellyoffical"
+  },
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "design-to-code",
+    "vibecoding",
+    "wan2.7",
+    "qwen-omni",
+    "ui",
+    "ux"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Frontend Vibe Suite",
+    "shortDescription": "Run a multimodal frontend loop from style interview to design video to implementation handoff",
+    "longDescription": "Use Frontend Vibe Suite to interview for style intent, generate Wan2.7 concept assets and showcase videos, translate those videos into structured frontend briefs with Qwen Omni, and then continue implementation with existing frontend coding workflows.",
+    "developerName": "kkellyoffical",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Run a frontend vibe loop from requirements to a design video and implementation brief",
+      "Interview me for product style and generate a Wan2.7 prototype video",
+      "Translate this UI design video into a structured frontend brief"
+    ],
+    "brandColor": "#1F6FEB",
+    "screenshots": []
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "model": "qwen3-omni-flash",
+  "video_url": "https://example.com/design-preview.mp4",
+  "focus": "dashboard layout, navigation, KPI modules, motion language",
+  "brief": {
+    "summary": "A desktop AI operations dashboard with a stable three-zone layout and restrained cyan-highlight motion.",
+    "page_regions": [
+      "left navigation rail",
+      "top filter and status bar",
+      "primary chart workspace",
+      "alerts and task queue column",
+      "detail drawer"
+    ],
+    "visual_tokens": {
+      "surface": "dark neutral",
+      "accent": "cyan",
+      "radius": "small",
+      "shadow": "minimal"
+    },
+    "typography": [
+      "compact sans-serif headings",
+      "dense tabular numerals for metrics"
+    ],
+    "color": [
+      "charcoal background",
+      "cool gray panels",
+      "cyan interactive highlights",
+      "red critical alert states"
+    ],
+    "spacing": [
+      "tight vertical rhythm",
+      "consistent 16-24px section gaps"
+    ],
+    "components": [
+      "status chips",
+      "metric strip",
+      "line chart",
+      "alerts list",
+      "queue table",
+      "slide-over details panel"
+    ],
+    "interactions": [
+      "filter chips update active state",
+      "hover reveals richer data on charts",
+      "row click opens detail drawer"
+    ],
+    "motion": [
+      "short panel slide-in",
+      "chart value easing",
+      "subtle highlight pulse on critical rows"
+    ],
+    "implementation_hints": [
+      "good fit for Next.js with Tailwind",
+      "use CSS grid for workspace zones",
+      "preserve fixed widths for navigation and drawer"
+    ],
+    "ambiguities": [
+      "mobile collapse behavior is not visible",
+      "chart tooltip content is implied but not fully shown"
+    ]
+  },
+  "raw_output": "{\"summary\":\"A desktop AI operations dashboard...\"}"
+}
