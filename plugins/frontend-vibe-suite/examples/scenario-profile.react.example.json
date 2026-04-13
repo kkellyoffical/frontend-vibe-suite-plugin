@@ -1,0 +1,26 @@
+{
+  "scenarioProfile": {
+    "id": "operations-console",
+    "label": "Operations Console",
+    "deliveryShape": "console",
+    "imageDirectives": [
+      "Show dense monitoring UI with queues, alerts, and action surfaces.",
+      "Prioritize scan speed, exception visibility, and compact control placement."
+    ],
+    "videoDirectives": [
+      "Demonstrate queue triage, alert highlighting, and detail drawer opening.",
+      "Avoid cinematic camera motion; focus on workflow state."
+    ],
+    "omniDirectives": [
+      "Extract alert hierarchy, queue/table patterns, and exception-handling interactions."
+    ],
+    "buildDirectives": [
+      "Keep alert states obvious above the fold and preserve compact table ergonomics."
+    ],
+    "fallbackCandidates": [
+      "analytics-dashboard",
+      "marketing-landing",
+      "general-product-app"
+    ]
+  }
+}

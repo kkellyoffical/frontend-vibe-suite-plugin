@@ -17,6 +17,8 @@
     "Linear",
     "Stripe Dashboard"
   ],
+  "promptScenario": "operations-console",
+  "deliveryShape": "console",
   "stackTargets": [
     "Next.js",
     "React",

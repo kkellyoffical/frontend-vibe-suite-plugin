@@ -30,6 +30,7 @@ def merge_handoff(style_brief: dict, translated_payload: dict, prompt_pack: dict
     ambiguities = list_or_empty(translated.get("ambiguities"))
     stack_targets = list_or_empty(style_brief.get("stackTargets"))
     component_preferences = list_or_empty(style_brief.get("componentPreferences"))
+    scenario_profile = prompt_pack.get("scenario_profile") if prompt_pack else None
     library_route = style_brief.get("libraryRoute") if isinstance(style_brief.get("libraryRoute"), dict) else None
     if not library_route and isinstance(translated.get("libraryRoute"), dict):
         library_route = translated.get("libraryRoute")
@@ -74,6 +75,7 @@ def merge_handoff(style_brief: dict, translated_payload: dict, prompt_pack: dict
             "component_preferences": component_preferences,
             "library_route": library_route,
         },
+        "scenario_context": scenario_profile,
         "source_of_truth": {
             "style_brief_priority": True,
             "translated_video_brief_used": True,
@@ -110,11 +112,19 @@ def to_markdown(handoff: dict) -> str:
     product = handoff["product_context"]
     visual = handoff["visual_system"]
     impl = handoff["implementation_requirements"]
+    scenario = handoff.get("scenario_context") or {}
     library_route = handoff.get("library_route")
     library_route_block = ""
     if library_route:
         library_route_block = (
             f"- Library route: {json.dumps(library_route, ensure_ascii=False)}\n\n"
+        )
+    scenario_block = ""
+    if scenario:
+        scenario_block = (
+            f"- Scenario: {scenario.get('label')} ({scenario.get('id')})\n"
+            f"- Delivery shape: {scenario.get('deliveryShape')}\n"
+            f"- Fallbacks: {', '.join(scenario.get('fallbackCandidates', []))}\n\n"
         )
     return (
         "# Frontend Build Handoff\n\n"
@@ -123,6 +133,8 @@ def to_markdown(handoff: dict) -> str:
         f"- Surface: {product.get('surface')}\n"
         f"- Primary goal: {product.get('primary_goal')}\n"
         f"- Users: {', '.join(product.get('users', []))}\n\n"
+        "## Scenario Context\n"
+        f"{scenario_block}"
         "## Stack Context\n"
         f"- Targets: {', '.join(handoff.get('stack_context', {}).get('targets', []))}\n"
         f"- Component preferences: {', '.join(handoff.get('stack_context', {}).get('component_preferences', []))}\n\n"

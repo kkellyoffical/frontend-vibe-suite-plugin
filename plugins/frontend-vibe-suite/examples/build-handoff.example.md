@@ -6,6 +6,11 @@
 - Primary goal: help operators scan system health, spot anomalies, and act quickly
 - Users: ops lead, support engineer, founder reviewing status
 
+## Scenario Context
+- Scenario: Operations Console (operations-console)
+- Delivery shape: console
+- Fallbacks: analytics-dashboard, marketing-landing, general-product-app
+
 ## Stack Context
 - Targets: Next.js, React, Tailwind CSS
 - Component preferences: Radix UI primitives, shadcn/ui, React Aria for accessible custom patterns
@@ -79,6 +84,8 @@ Implement this frontend strictly from the translated UI brief and the original s
 Product: AI operations dashboard
 Primary surface: desktop-first web app
 Primary goal: help operators scan system health, spot anomalies, and act quickly
+Prompt scenario: Operations Console (operations-console)
+Delivery shape: console
 Target users: ops lead, support engineer, founder reviewing status
 Brand mood: precise, calm, high-signal, premium
 Layout direction: left navigation, wide workspace, compact top filters, right-side detail drawer
@@ -116,6 +123,8 @@ Acceptance criteria:
 - operators can understand state in under 10 seconds
 - critical alerts are obvious without scrolling
 - layout remains stable with long labels
+Scenario-specific implementation directives:
+- Keep alert states obvious above the fold and preserve compact table ergonomics.
 Preserve the hierarchy, visual tone, motion attitude, and anti-goals. Do not improvise new product directions. Call out any ambiguity that remains after the video translation.
 
 Implement the approved frontend using the merged handoff below. Keep the layout, hierarchy, tokens, interactions, and anti-goals stable.

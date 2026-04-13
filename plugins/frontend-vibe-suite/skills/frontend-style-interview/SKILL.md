@@ -21,8 +21,9 @@ Cover these angles:
 6. motion and interaction feel
 7. content tone and copy sharpness
 8. target framework and component system
-9. constraints and acceptance criteria
-10. anti-goals
+9. scenario and delivery shape
+10. constraints and acceptance criteria
+11. anti-goals
 
 If the stack is still broad, split the decision into:
 
@@ -53,6 +54,8 @@ Before moving on, collect enough detail to write:
   "users": [],
   "brandMood": [],
   "visualReferences": [],
+  "promptScenario": "",
+  "deliveryShape": "",
   "layoutDirection": "",
   "density": "",
   "colorDirection": "",
@@ -72,6 +75,8 @@ Before moving on, collect enough detail to write:
 `componentPreferences` should list the preferred primitive or component libraries, for example `PrimeVue`, `Ark UI`, `Bits UI`, `Lit`, or `DaisyUI`.
 If a separate routing step is used, keep the concrete decision in `libraryRoute` and mirror only the primary choice into `stackTargets`.
 Use `frontend-library-router` when the user has only specified product shape and framework family, not an actual library.
+Use `promptScenario` for a concrete UI situation such as `analytics-dashboard`, `admin-crud`, `mobile-hybrid-shell`, or `design-system-docs`.
+Use `deliveryShape` for a broader shape such as `dashboard`, `workspace`, `landing`, `commerce`, `documentation`, or `mobile`.
 
 ## Exit Criteria
 
@@ -80,6 +85,7 @@ You are done only when:
 - the brief can drive a visual prototype without guessing
 - the anti-goals are concrete
 - the primary surface is explicit
+- the scenario or delivery shape is explicit, or intentionally broad
 - the target stack or component model is explicit, or intentionally left broad
 - the implementation constraints are known or intentionally assumed
 

@@ -1,0 +1,429 @@
+{
+  "scenarios": [
+    {
+      "id": "ai-chat-workspace",
+      "label": "AI Chat Workspace",
+      "deliveryShape": "workspace",
+      "signals": ["chat", "assistant", "agent", "conversation", "prompt", "model"],
+      "imageDirectives": [
+        "Show a two-pane or three-pane conversational workspace with a clear composer and contextual side tools.",
+        "Prioritize readable message hierarchy, tool states, and assistant/user contrast over decorative hero treatment."
+      ],
+      "videoDirectives": [
+        "Demonstrate message flow, composer behavior, tool invocation, and contextual side panels.",
+        "Keep motion focused on streaming, state changes, and panel transitions."
+      ],
+      "omniDirectives": [
+        "Extract conversation layout, composer states, tool affordances, and citation or attachment behavior."
+      ],
+      "buildDirectives": [
+        "Preserve layout stability for long messages, code blocks, and streaming states."
+      ]
+    },
+    {
+      "id": "analytics-dashboard",
+      "label": "Analytics Dashboard",
+      "deliveryShape": "dashboard",
+      "signals": ["analytics", "metric", "kpi", "dashboard", "chart", "insight", "funnel"],
+      "imageDirectives": [
+        "Show KPI hierarchy, chart density, filters, and decision-oriented data surfaces.",
+        "Favor operational clarity over marketing gloss."
+      ],
+      "videoDirectives": [
+        "Demonstrate filter changes, chart reactions, and drill-down surfaces.",
+        "Keep motion subtle and data-centric."
+      ],
+      "omniDirectives": [
+        "Extract data regions, chart types, filter controls, and dashboard scanning order."
+      ],
+      "buildDirectives": [
+        "Keep chart zones, KPI strips, and filter toolbars dimensionally stable."
+      ]
+    },
+    {
+      "id": "operations-console",
+      "label": "Operations Console",
+      "deliveryShape": "console",
+      "signals": ["operations", "ops", "incident", "queue", "exceptions", "alerts", "console"],
+      "imageDirectives": [
+        "Show dense monitoring UI with queues, alerts, and action surfaces.",
+        "Prioritize scan speed, exception visibility, and compact control placement."
+      ],
+      "videoDirectives": [
+        "Demonstrate queue triage, alert highlighting, and detail drawer opening.",
+        "Avoid cinematic camera motion; focus on workflow state."
+      ],
+      "omniDirectives": [
+        "Extract alert hierarchy, queue/table patterns, and exception-handling interactions."
+      ],
+      "buildDirectives": [
+        "Keep alert states obvious above the fold and preserve compact table ergonomics."
+      ]
+    },
+    {
+      "id": "admin-crud",
+      "label": "Admin CRUD",
+      "deliveryShape": "admin",
+      "signals": ["admin", "crud", "table", "form", "records", "management", "backoffice"],
+      "imageDirectives": [
+        "Show table-first admin UI with forms, filters, and management actions.",
+        "Use conventional enterprise layout patterns and visible bulk actions."
+      ],
+      "videoDirectives": [
+        "Demonstrate row selection, filter interaction, and create/edit form flow."
+      ],
+      "omniDirectives": [
+        "Extract table patterns, form structure, filter bars, and detail/edit surfaces."
+      ],
+      "buildDirectives": [
+        "Favor predictable admin ergonomics over brand-heavy experimentation."
+      ]
+    },
+    {
+      "id": "marketing-landing",
+      "label": "Marketing Landing",
+      "deliveryShape": "landing",
+      "signals": ["landing", "marketing", "hero", "campaign", "launch", "brand site"],
+      "imageDirectives": [
+        "Lead with one dominant visual idea and a clear conversion action.",
+        "Avoid dashboard patterns unless the product itself is shown in context."
+      ],
+      "videoDirectives": [
+        "Demonstrate hero reveal, section rhythm, and conversion CTA emphasis."
+      ],
+      "omniDirectives": [
+        "Extract section sequence, hero treatment, support proof, and CTA placement."
+      ],
+      "buildDirectives": [
+        "Keep copy concise and visual hierarchy unmistakable in the first viewport."
+      ]
+    },
+    {
+      "id": "developer-tool-ide",
+      "label": "Developer Tool or IDE",
+      "deliveryShape": "workspace",
+      "signals": ["developer", "ide", "editor", "terminal", "repository", "debugger", "logs"],
+      "imageDirectives": [
+        "Show a tool workspace with editor, terminal, file tree, or inspector patterns.",
+        "Preserve dense operational hierarchy and code/tool readability."
+      ],
+      "videoDirectives": [
+        "Demonstrate file navigation, editor focus, console output, or inspector changes."
+      ],
+      "omniDirectives": [
+        "Extract pane layout, editor chrome, toolbar structure, and utility actions."
+      ],
+      "buildDirectives": [
+        "Keep panel sizes stable and prioritize tool affordance clarity."
+      ]
+    },
+    {
+      "id": "design-system-docs",
+      "label": "Design System Docs",
+      "deliveryShape": "documentation",
+      "signals": ["design system", "component docs", "storybook", "tokens", "docs", "guidelines"],
+      "imageDirectives": [
+        "Show documentation shell, live component preview, API metadata, and code examples.",
+        "Prioritize documentation readability over marketing treatment."
+      ],
+      "videoDirectives": [
+        "Demonstrate component preview switching, props tables, and code tabs."
+      ],
+      "omniDirectives": [
+        "Extract documentation shell layout, preview regions, metadata tables, and tab behavior."
+      ],
+      "buildDirectives": [
+        "Keep demo, docs, and API sections explicit and easy to scan."
+      ]
+    },
+    {
+      "id": "ecommerce-storefront",
+      "label": "E-commerce Storefront",
+      "deliveryShape": "commerce",
+      "signals": ["store", "shop", "product grid", "cart", "catalog", "ecommerce", "retail"],
+      "imageDirectives": [
+        "Show product imagery, merchandising hierarchy, filters, and purchase affordances.",
+        "Balance emotional product presentation with practical conversion UI."
+      ],
+      "videoDirectives": [
+        "Demonstrate browsing, product selection, cart interaction, and recommendation rhythm."
+      ],
+      "omniDirectives": [
+        "Extract merchandising layout, product card patterns, filters, and cart or quick-add actions."
+      ],
+      "buildDirectives": [
+        "Keep product imagery consistent and purchase actions easy to find."
+      ]
+    },
+    {
+      "id": "checkout-flow",
+      "label": "Checkout Flow",
+      "deliveryShape": "transaction",
+      "signals": ["checkout", "payment", "billing", "shipping", "order review", "purchase"],
+      "imageDirectives": [
+        "Show focused transaction flow with minimal distraction and strong step clarity."
+      ],
+      "videoDirectives": [
+        "Demonstrate step progression, address/payment entry, and order confirmation states."
+      ],
+      "omniDirectives": [
+        "Extract stepper layout, form grouping, summary panels, and trust signals."
+      ],
+      "buildDirectives": [
+        "Prioritize trust, focus management, and form clarity."
+      ]
+    },
+    {
+      "id": "authentication-onboarding",
+      "label": "Authentication and Onboarding",
+      "deliveryShape": "flow",
+      "signals": ["login", "signup", "register", "onboarding", "invite", "workspace setup"],
+      "imageDirectives": [
+        "Show a focused entry flow with clear progression and minimal noise."
+      ],
+      "videoDirectives": [
+        "Demonstrate step transitions, validation, and welcome/setup states."
+      ],
+      "omniDirectives": [
+        "Extract form states, step logic, progress indicators, and helper copy placement."
+      ],
+      "buildDirectives": [
+        "Keep validation and step transitions explicit and calm."
+      ]
+    },
+    {
+      "id": "kanban-project-workspace",
+      "label": "Kanban Project Workspace",
+      "deliveryShape": "workspace",
+      "signals": ["kanban", "project", "tasks", "board", "roadmap", "sprint", "backlog"],
+      "imageDirectives": [
+        "Show board structure, task density, and workspace controls."
+      ],
+      "videoDirectives": [
+        "Demonstrate drag-like flow, task detail opening, and board filtering."
+      ],
+      "omniDirectives": [
+        "Extract board columns, task cards, filter controls, and detail panel behavior."
+      ],
+      "buildDirectives": [
+        "Keep board dimensions and card rhythm stable under dynamic content."
+      ]
+    },
+    {
+      "id": "crm-sales-workspace",
+      "label": "CRM or Sales Workspace",
+      "deliveryShape": "workspace",
+      "signals": ["crm", "pipeline", "sales", "leads", "accounts", "opportunities"],
+      "imageDirectives": [
+        "Show pipeline visibility, account context, and action-oriented sales surfaces."
+      ],
+      "videoDirectives": [
+        "Demonstrate pipeline state changes, record drill-down, and activity panels."
+      ],
+      "omniDirectives": [
+        "Extract pipeline layout, record views, action bars, and timeline panels."
+      ],
+      "buildDirectives": [
+        "Prioritize account context, state visibility, and action speed."
+      ]
+    },
+    {
+      "id": "finance-trading-terminal",
+      "label": "Finance or Trading Terminal",
+      "deliveryShape": "terminal",
+      "signals": ["trading", "market", "portfolio", "positions", "finance", "terminal"],
+      "imageDirectives": [
+        "Show dense financial workspace with watchlists, charts, order panels, and market state."
+      ],
+      "videoDirectives": [
+        "Demonstrate chart interaction, order panel focus, and watchlist state changes."
+      ],
+      "omniDirectives": [
+        "Extract market panels, chart layout, tabular data density, and order-entry regions."
+      ],
+      "buildDirectives": [
+        "Keep numeric readability, contrast, and panel discipline extremely high."
+      ]
+    },
+    {
+      "id": "healthcare-clinical-dashboard",
+      "label": "Healthcare or Clinical Dashboard",
+      "deliveryShape": "dashboard",
+      "signals": ["healthcare", "clinical", "patient", "medical", "care", "hospital"],
+      "imageDirectives": [
+        "Show clinical information hierarchy with trust, clarity, and alert discipline."
+      ],
+      "videoDirectives": [
+        "Demonstrate patient summary, status changes, and contextual details."
+      ],
+      "omniDirectives": [
+        "Extract patient context zones, status alerts, forms, and chronology elements."
+      ],
+      "buildDirectives": [
+        "Favor calm clarity, legibility, and safe emphasis over decorative styling."
+      ]
+    },
+    {
+      "id": "education-course-platform",
+      "label": "Education or Course Platform",
+      "deliveryShape": "learning",
+      "signals": ["course", "learning", "education", "lesson", "curriculum", "student"],
+      "imageDirectives": [
+        "Show course progression, lesson context, and clear progress surfaces."
+      ],
+      "videoDirectives": [
+        "Demonstrate lesson navigation, progress tracking, and content interaction."
+      ],
+      "omniDirectives": [
+        "Extract curriculum navigation, content layout, and progress indicators."
+      ],
+      "buildDirectives": [
+        "Keep navigation, progress, and content focus easy to understand."
+      ]
+    },
+    {
+      "id": "media-gallery-streaming",
+      "label": "Media Gallery or Streaming UI",
+      "deliveryShape": "media",
+      "signals": ["media", "gallery", "streaming", "video", "library", "playlist", "browse"],
+      "imageDirectives": [
+        "Show imagery-led browsing, media cards, and playback or preview affordances."
+      ],
+      "videoDirectives": [
+        "Demonstrate browse flow, selection, and playback transition or preview state."
+      ],
+      "omniDirectives": [
+        "Extract card hierarchy, media rails, preview regions, and control surfaces."
+      ],
+      "buildDirectives": [
+        "Preserve card consistency and keep controls readable over media surfaces."
+      ]
+    },
+    {
+      "id": "map-logistics-control",
+      "label": "Map or Logistics Control",
+      "deliveryShape": "control-room",
+      "signals": ["map", "route", "logistics", "fleet", "tracking", "delivery", "geospatial"],
+      "imageDirectives": [
+        "Show map-centered workspace with route status, fleet context, and side controls."
+      ],
+      "videoDirectives": [
+        "Demonstrate map interaction, route highlighting, and details panel behavior."
+      ],
+      "omniDirectives": [
+        "Extract map region, overlays, controls, list-detail relationships, and alert states."
+      ],
+      "buildDirectives": [
+        "Keep the map central without letting overlays obscure key operational information."
+      ]
+    },
+    {
+      "id": "content-editor-cms",
+      "label": "Content Editor or CMS",
+      "deliveryShape": "editor",
+      "signals": ["editor", "cms", "content", "rich text", "blocks", "publish", "draft"],
+      "imageDirectives": [
+        "Show editing canvas, content controls, metadata panels, and publish workflow."
+      ],
+      "videoDirectives": [
+        "Demonstrate edit flow, sidebar settings, and preview or publish states."
+      ],
+      "omniDirectives": [
+        "Extract editor chrome, toolbar patterns, metadata panels, and preview regions."
+      ],
+      "buildDirectives": [
+        "Keep editing focus strong and avoid chrome that distracts from content."
+      ]
+    },
+    {
+      "id": "mobile-hybrid-shell",
+      "label": "Mobile or Hybrid App Shell",
+      "deliveryShape": "mobile",
+      "signals": ["mobile", "hybrid", "native-like", "tab bar", "bottom nav", "pwa"],
+      "imageDirectives": [
+        "Show mobile-first surfaces, clear navigation, and touch-friendly control spacing."
+      ],
+      "videoDirectives": [
+        "Demonstrate tab changes, gesture-like transitions, and focused mobile states."
+      ],
+      "omniDirectives": [
+        "Extract tab bars, top/bottom navigation, card stack rhythm, and touch affordances."
+      ],
+      "buildDirectives": [
+        "Favor mobile ergonomics, clear touch targets, and stable navigation patterns."
+      ]
+    },
+    {
+      "id": "settings-preferences",
+      "label": "Settings or Preferences",
+      "deliveryShape": "settings",
+      "signals": ["settings", "preferences", "configuration", "profile", "security", "billing settings"],
+      "imageDirectives": [
+        "Show grouped settings, section navigation, and clear control semantics."
+      ],
+      "videoDirectives": [
+        "Demonstrate section changes, toggle states, and save feedback."
+      ],
+      "omniDirectives": [
+        "Extract settings navigation, form grouping, and feedback/status patterns."
+      ],
+      "buildDirectives": [
+        "Keep settings semantics conventional and feedback states explicit."
+      ]
+    },
+    {
+      "id": "iot-device-control",
+      "label": "IoT or Device Control",
+      "deliveryShape": "control",
+      "signals": ["iot", "device", "control", "telemetry", "sensors", "hardware", "monitoring"],
+      "imageDirectives": [
+        "Show device status, telemetry, and control panels with immediate operational clarity."
+      ],
+      "videoDirectives": [
+        "Demonstrate device state changes, command actions, and telemetry updates."
+      ],
+      "omniDirectives": [
+        "Extract telemetry panels, control widgets, status severity, and device grouping."
+      ],
+      "buildDirectives": [
+        "Preserve control clarity and separate monitoring from action surfaces."
+      ]
+    },
+    {
+      "id": "community-social-feed",
+      "label": "Community or Social Feed",
+      "deliveryShape": "feed",
+      "signals": ["social", "community", "feed", "posts", "followers", "comments", "timeline"],
+      "imageDirectives": [
+        "Show a feed-centric layout with identity, reactions, and discovery surfaces."
+      ],
+      "videoDirectives": [
+        "Demonstrate feed scroll rhythm, reactions, composer, and side discovery areas."
+      ],
+      "omniDirectives": [
+        "Extract feed card patterns, composer placement, reaction controls, and side modules."
+      ],
+      "buildDirectives": [
+        "Keep identity, hierarchy, and interaction affordances obvious under repeated content."
+      ]
+    },
+    {
+      "id": "general-product-app",
+      "label": "General Product App",
+      "deliveryShape": "web app",
+      "signals": ["app", "workspace", "platform", "tool", "product"],
+      "imageDirectives": [
+        "Show a credible product UI with clear primary workspace, navigation, and supporting context."
+      ],
+      "videoDirectives": [
+        "Demonstrate one concrete primary task and the supporting layout rhythm."
+      ],
+      "omniDirectives": [
+        "Extract page regions, primary workspace, navigation model, and state changes."
+      ],
+      "buildDirectives": [
+        "Favor clarity, stable layout, and believable product hierarchy."
+      ]
+    }
+  ]
+}

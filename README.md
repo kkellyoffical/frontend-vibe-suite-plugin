@@ -40,6 +40,7 @@ That changes the workflow from "guess and build" to "design, read back, then bui
 
 - `frontend-style-interview` for multi-round style discovery
 - `frontend-library-router` for framework and component-family routing
+- `select_prompt_template.py` for scenario-aware prompt selection
 - `choose_library.py` for machine-readable library routing
 - `render_prompt_pack.py` for Wan and Omni prompt generation
 - `run_visual_loop.py` for wrapping existing local Wan image and video skills
@@ -48,6 +49,7 @@ That changes the workflow from "guess and build" to "design, read back, then bui
 - example briefs and example generated artifacts
 - local marketplace metadata for Codex plugin loading
 - a stack-aware component routing guide for Vue, Svelte, Angular, Solid, React, and Web Components
+- a scenario-aware prompt system covering at least 20 frontend situations
 
 ## Library Routing
 
@@ -76,6 +78,7 @@ See the full matrix in [plugins/frontend-vibe-suite/docs/component-library-routi
 │   └── frontend-vibe-suite/
 │       ├── data/
 │       │   └── component-libraries.json
+│       │   └── prompt-scenarios.json
 │       ├── docs/
 │       │   └── component-library-routing.md
 │       ├── .codex-plugin/plugin.json

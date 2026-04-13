@@ -16,6 +16,8 @@
     "enterprise admin UI",
     "high-signal logistics console"
   ],
+  "promptScenario": "admin-crud",
+  "deliveryShape": "admin",
   "stackTargets": [
     "Vue",
     "Nuxt",

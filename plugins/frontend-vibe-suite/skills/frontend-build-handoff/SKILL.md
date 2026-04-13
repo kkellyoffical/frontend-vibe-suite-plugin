@@ -42,6 +42,7 @@ python3 plugins/frontend-vibe-suite/scripts/build_handoff.py \
 The handoff should contain:
 
 - product and surface context
+- scenario context
 - immutable anti-goals
 - visual system constraints
 - stack targets and component preferences

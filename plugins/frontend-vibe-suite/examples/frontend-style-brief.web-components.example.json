@@ -15,6 +15,8 @@
     "enterprise design system documentation",
     "component workbench"
   ],
+  "promptScenario": "design-system-docs",
+  "deliveryShape": "documentation",
   "stackTargets": [
     "Web Components",
     "React",

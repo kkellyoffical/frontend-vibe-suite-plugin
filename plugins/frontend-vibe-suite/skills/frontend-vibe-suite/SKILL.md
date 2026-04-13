@@ -42,6 +42,7 @@ Invoke `frontend-style-interview` and keep going until these are specific:
 - density and interaction style
 - color and typography direction
 - motion attitude
+- scenario and delivery shape
 - target framework and component model
 - anti-goals
 - implementation constraints
@@ -56,6 +57,7 @@ If the user gives a stack, capture it explicitly. Keep it in one of these lanes:
 - cross-framework design systems
 
 If the stack is still broad after the interview, route it with `frontend-library-router` and carry the result through as `libraryRoute`, then mirror the primary choice into `stackTargets` and `componentPreferences` before rendering prompts.
+If the prompt scenario is still broad, resolve it with `select_prompt_template.py` or by filling `promptScenario` and `deliveryShape` in the brief before rendering prompts.
 
 You can materialize that route with:
 
@@ -63,6 +65,14 @@ You can materialize that route with:
 python3 plugins/frontend-vibe-suite/scripts/choose_library.py \
   --brief path/to/frontend-style-brief.json \
   --output path/to/library-route.json
+```
+
+And you can materialize the prompt scenario with:
+
+```bash
+python3 plugins/frontend-vibe-suite/scripts/select_prompt_template.py \
+  --brief path/to/frontend-style-brief.json \
+  --output path/to/scenario-profile.json
 ```
 
 ### Phase 2: Render a prompt pack
@@ -82,6 +92,7 @@ That prompt pack contains:
 - `omni_translation_prompt`
 - `build_handoff_prompt`
 - `stack_profile`
+- `scenario_profile`
 
 ### Phase 3: Generate visual prototypes
 

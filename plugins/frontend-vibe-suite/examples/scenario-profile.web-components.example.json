@@ -1,0 +1,25 @@
+{
+  "scenarioProfile": {
+    "id": "design-system-docs",
+    "label": "Design System Docs",
+    "deliveryShape": "documentation",
+    "imageDirectives": [
+      "Show documentation shell, live component preview, API metadata, and code examples.",
+      "Prioritize documentation readability over marketing treatment."
+    ],
+    "videoDirectives": [
+      "Demonstrate component preview switching, props tables, and code tabs."
+    ],
+    "omniDirectives": [
+      "Extract documentation shell layout, preview regions, metadata tables, and tab behavior."
+    ],
+    "buildDirectives": [
+      "Keep demo, docs, and API sections explicit and easy to scan."
+    ],
+    "fallbackCandidates": [
+      "general-product-app",
+      "admin-crud",
+      "operations-console"
+    ]
+  }
+}

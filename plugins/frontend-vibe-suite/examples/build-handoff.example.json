@@ -39,6 +39,30 @@
       ]
     }
   },
+  "scenario_context": {
+    "id": "operations-console",
+    "label": "Operations Console",
+    "deliveryShape": "console",
+    "imageDirectives": [
+      "Show dense monitoring UI with queues, alerts, and action surfaces.",
+      "Prioritize scan speed, exception visibility, and compact control placement."
+    ],
+    "videoDirectives": [
+      "Demonstrate queue triage, alert highlighting, and detail drawer opening.",
+      "Avoid cinematic camera motion; focus on workflow state."
+    ],
+    "omniDirectives": [
+      "Extract alert hierarchy, queue/table patterns, and exception-handling interactions."
+    ],
+    "buildDirectives": [
+      "Keep alert states obvious above the fold and preserve compact table ergonomics."
+    ],
+    "fallbackCandidates": [
+      "analytics-dashboard",
+      "marketing-landing",
+      "general-product-app"
+    ]
+  },
   "source_of_truth": {
     "style_brief_priority": true,
     "translated_video_brief_used": true,
@@ -153,5 +177,5 @@
     "mobile collapse behavior is not visible",
     "chart tooltip content is implied but not fully shown"
   ],
-  "coding_prompt": "Implement this frontend strictly from the translated UI brief and the original style brief.\nProduct: AI operations dashboard\nPrimary surface: desktop-first web app\nPrimary goal: help operators scan system health, spot anomalies, and act quickly\nTarget users: ops lead, support engineer, founder reviewing status\nBrand mood: precise, calm, high-signal, premium\nLayout direction: left navigation, wide workspace, compact top filters, right-side detail drawer\nDensity: dense but readable\nColor direction: charcoal base with cool neutral surfaces and one cyan action accent\nTypography direction: clean grotesk sans for UI with a tighter data-oriented scale\nMotion direction: short purposeful reveals, panel slides, subtle chart transitions\nContent tone: operational and direct\nVisual references: Linear, Stripe Dashboard\nTarget stacks: Next.js, React, Tailwind CSS\nComponent preferences: Radix UI primitives, shadcn/ui, React Aria for accessible custom patterns\nPreferred library route: shadcn/ui\nFallbacks: PrimeReact, Ant Design, DaisyUI\nFrameworks covered: React, Next.js\nMode: source-first\nReason: framework fit for Next.js, React, Tailwind CSS, source-first delivery mode, dashboard product shape, Tailwind-friendly path\nCaveats: styling: tailwind, docs: https://ui.shadcn.com/docs\nMust-have elements:\n- status summary row\n- alerts timeline\n- chart area\n- task queue\n- detail drawer\nAnti-goals:\n- marketing hero language\n- glassmorphism\n- oversized cards\n- purple-heavy palette\nTechnical constraints:\n- Next.js app router\n- Tailwind CSS\n- desktop and tablet support\n- WCAG AA contrast\nAcceptance criteria:\n- operators can understand state in under 10 seconds\n- critical alerts are obvious without scrolling\n- layout remains stable with long labels\nPreserve the hierarchy, visual tone, motion attitude, and anti-goals. Do not improvise new product directions. Call out any ambiguity that remains after the video translation.\n\nImplement the approved frontend using the merged handoff below. Keep the layout, hierarchy, tokens, interactions, and anti-goals stable.\n\nStyle constraints:\n- status summary row\n- alerts timeline\n- chart area\n- task queue\n- detail drawer\n\nStack context:\n- Next.js\n- React\n- Tailwind CSS\n- Radix UI primitives\n- shadcn/ui\n- React Aria for accessible custom patterns\n\nTranslated regions and components:\n- left navigation rail\n- top filter and status bar\n- primary chart workspace\n- alerts and task queue column\n- detail drawer\n- status chips\n- metric strip\n- line chart\n- alerts list\n- queue table\n- slide-over details panel\n\nLibrary route:\nPrimary: shadcn/ui\nFallbacks: PrimeReact, Ant Design, DaisyUI\nFrameworks: React, Next.js\nMode: source-first\nReason: framework fit for Next.js, React, Tailwind CSS, source-first delivery mode, dashboard product shape, Tailwind-friendly path\nCaveats: styling: tailwind, docs: https://ui.shadcn.com/docs"
+  "coding_prompt": "Implement this frontend strictly from the translated UI brief and the original style brief.\nProduct: AI operations dashboard\nPrimary surface: desktop-first web app\nPrimary goal: help operators scan system health, spot anomalies, and act quickly\nPrompt scenario: Operations Console (operations-console)\nDelivery shape: console\nTarget users: ops lead, support engineer, founder reviewing status\nBrand mood: precise, calm, high-signal, premium\nLayout direction: left navigation, wide workspace, compact top filters, right-side detail drawer\nDensity: dense but readable\nColor direction: charcoal base with cool neutral surfaces and one cyan action accent\nTypography direction: clean grotesk sans for UI with a tighter data-oriented scale\nMotion direction: short purposeful reveals, panel slides, subtle chart transitions\nContent tone: operational and direct\nVisual references: Linear, Stripe Dashboard\nTarget stacks: Next.js, React, Tailwind CSS\nComponent preferences: Radix UI primitives, shadcn/ui, React Aria for accessible custom patterns\nPreferred library route: shadcn/ui\nFallbacks: PrimeReact, Ant Design, DaisyUI\nFrameworks covered: React, Next.js\nMode: source-first\nReason: framework fit for Next.js, React, Tailwind CSS, source-first delivery mode, dashboard product shape, Tailwind-friendly path\nCaveats: styling: tailwind, docs: https://ui.shadcn.com/docs\nMust-have elements:\n- status summary row\n- alerts timeline\n- chart area\n- task queue\n- detail drawer\nAnti-goals:\n- marketing hero language\n- glassmorphism\n- oversized cards\n- purple-heavy palette\nTechnical constraints:\n- Next.js app router\n- Tailwind CSS\n- desktop and tablet support\n- WCAG AA contrast\nAcceptance criteria:\n- operators can understand state in under 10 seconds\n- critical alerts are obvious without scrolling\n- layout remains stable with long labels\nScenario-specific implementation directives:\n- Keep alert states obvious above the fold and preserve compact table ergonomics.\nPreserve the hierarchy, visual tone, motion attitude, and anti-goals. Do not improvise new product directions. Call out any ambiguity that remains after the video translation.\n\nImplement the approved frontend using the merged handoff below. Keep the layout, hierarchy, tokens, interactions, and anti-goals stable.\n\nStyle constraints:\n- status summary row\n- alerts timeline\n- chart area\n- task queue\n- detail drawer\n\nStack context:\n- Next.js\n- React\n- Tailwind CSS\n- Radix UI primitives\n- shadcn/ui\n- React Aria for accessible custom patterns\n\nTranslated regions and components:\n- left navigation rail\n- top filter and status bar\n- primary chart workspace\n- alerts and task queue column\n- detail drawer\n- status chips\n- metric strip\n- line chart\n- alerts list\n- queue table\n- slide-over details panel\n\nLibrary route:\nPrimary: shadcn/ui\nFallbacks: PrimeReact, Ant Design, DaisyUI\nFrameworks: React, Next.js\nMode: source-first\nReason: framework fit for Next.js, React, Tailwind CSS, source-first delivery mode, dashboard product shape, Tailwind-friendly path\nCaveats: styling: tailwind, docs: https://ui.shadcn.com/docs"
 }

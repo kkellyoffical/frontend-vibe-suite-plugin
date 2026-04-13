@@ -22,6 +22,7 @@
 ### Scripts
 
 - `scripts/choose_library.py`
+- `scripts/select_prompt_template.py`
 - `scripts/render_prompt_pack.py`
 - `scripts/run_visual_loop.py`
 - `scripts/video_to_ui_brief.py`
@@ -35,6 +36,9 @@
 - `examples/library-route.react.example.json`
 - `examples/library-route.vue.example.json`
 - `examples/library-route.web-components.example.json`
+- `examples/scenario-profile.react.example.json`
+- `examples/scenario-profile.vue.example.json`
+- `examples/scenario-profile.web-components.example.json`
 - `examples/frontend-prompt-pack.example.json`
 - `examples/video-ui-brief.example.json`
 - `examples/build-handoff.example.json`
@@ -62,15 +66,13 @@ See [docs/component-library-routing.md](./docs/component-library-routing.md) for
 
 Run the interview workflow until product, surface, mood, density, anti-goals, target stack, and implementation constraints are specific enough to drive image and video generation. If the stack is still broad, resolve it with `frontend-library-router` before rendering prompts.
 
-### 2. Render the prompt pack
+### 2. Resolve the scenario and library route
 
 ```bash
-python3 plugins/frontend-vibe-suite/scripts/render_prompt_pack.py \
+python3 plugins/frontend-vibe-suite/scripts/select_prompt_template.py \
   --brief path/to/frontend-style-brief.json \
-  --output path/to/frontend-prompt-pack.json
+  --output path/to/scenario-profile.json
 ```
-
-If the library choice is still broad, resolve it before prompt generation:
 
 ```bash
 python3 plugins/frontend-vibe-suite/scripts/choose_library.py \
@@ -78,9 +80,17 @@ python3 plugins/frontend-vibe-suite/scripts/choose_library.py \
   --output path/to/library-route.json
 ```
 
-The machine-readable catalog behind this script lives at `data/component-libraries.json`.
+### 3. Render the prompt pack
 
-### 3. Run the visual loop
+```bash
+python3 plugins/frontend-vibe-suite/scripts/render_prompt_pack.py \
+  --brief path/to/frontend-style-brief.json \
+  --output path/to/frontend-prompt-pack.json
+```
+
+The machine-readable catalogs behind this flow live at `data/component-libraries.json` and `data/prompt-scenarios.json`.
+
+### 4. Run the visual loop
 
 Use your existing `wan27-image` and `wan27-video` skills directly, or use the wrapper:
 
@@ -94,7 +104,7 @@ python3 plugins/frontend-vibe-suite/scripts/run_visual_loop.py \
 
 Default mode is `t2v`. In `i2v`, the wrapped Wan skill currently expects public URLs such as `--first-frame-url`.
 
-### 4. Translate the video
+### 5. Translate the video
 
 ```bash
 python3 plugins/frontend-vibe-suite/scripts/video_to_ui_brief.py \
@@ -103,7 +113,7 @@ python3 plugins/frontend-vibe-suite/scripts/video_to_ui_brief.py \
   --output path/to/video-ui-brief.json
 ```
 
-### 5. Generate the coding handoff
+### 6. Generate the coding handoff
 
 ```bash
 python3 plugins/frontend-vibe-suite/scripts/build_handoff.py \
@@ -134,6 +144,7 @@ Template:
 ## Scope in the current branch
 
 - style brief generation
+- scenario-aware prompt generation across at least 20 UI situations
 - prompt-pack generation
 - wrapper for existing Wan skills
 - Qwen Omni translation over the DashScope OpenAI-compatible API

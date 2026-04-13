@@ -1,0 +1,25 @@
+{
+  "scenarioProfile": {
+    "id": "admin-crud",
+    "label": "Admin CRUD",
+    "deliveryShape": "admin",
+    "imageDirectives": [
+      "Show table-first admin UI with forms, filters, and management actions.",
+      "Use conventional enterprise layout patterns and visible bulk actions."
+    ],
+    "videoDirectives": [
+      "Demonstrate row selection, filter interaction, and create/edit form flow."
+    ],
+    "omniDirectives": [
+      "Extract table patterns, form structure, filter bars, and detail/edit surfaces."
+    ],
+    "buildDirectives": [
+      "Favor predictable admin ergonomics over brand-heavy experimentation."
+    ],
+    "fallbackCandidates": [
+      "operations-console",
+      "general-product-app",
+      "marketing-landing"
+    ]
+  }
+}
