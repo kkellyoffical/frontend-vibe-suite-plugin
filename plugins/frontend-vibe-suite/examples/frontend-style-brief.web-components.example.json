@@ -1,0 +1,62 @@
+{
+  "product": "Cross-platform internal design system",
+  "surface": "portable component library",
+  "primaryGoal": "ship reusable UI primitives that can survive framework changes",
+  "users": [
+    "design system engineer",
+    "product frontend team"
+  ],
+  "brandMood": [
+    "precise",
+    "neutral",
+    "durable"
+  ],
+  "visualReferences": [
+    "enterprise design system documentation",
+    "component workbench"
+  ],
+  "stackTargets": [
+    "Web Components",
+    "React",
+    "Vue",
+    "Angular"
+  ],
+  "componentPreferences": [
+    "Lit",
+    "Shoelace"
+  ],
+  "libraryRoute": {
+    "primary": "Lit",
+    "fallback": ["Shoelace", "Stencil"],
+    "frameworks": ["Web Components", "React", "Vue", "Angular"],
+    "mode": "portable",
+    "reason": "framework-neutral component base with wrapper-friendly interop",
+    "caveats": ["needs wrapper strategy for framework ergonomics", "SSR should be planned explicitly"]
+  },
+  "layoutDirection": "documentation shell with component demo area, API panel, and code tabs",
+  "density": "balanced",
+  "colorDirection": "clean neutral surfaces with one accent color",
+  "typographyDirection": "documentation-first sans stack",
+  "motionDirection": "subtle demo transitions only",
+  "contentTone": "technical and direct",
+  "mustHave": [
+    "component preview",
+    "props table",
+    "code examples",
+    "accessibility notes"
+  ],
+  "antiGoals": [
+    "framework-locked assumptions",
+    "heavy stylistic branding",
+    "runtime-only API design"
+  ],
+  "technicalConstraints": [
+    "Web Components first",
+    "wrapper compatibility for React and Vue",
+    "Storybook documentation"
+  ],
+  "acceptanceCriteria": [
+    "components can be consumed from more than one framework family",
+    "docs make accessibility behavior explicit"
+  ]
+}

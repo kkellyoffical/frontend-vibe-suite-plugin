@@ -6,7 +6,8 @@
 2. render prompts for Wan2.7
 3. generate concept frames or a short UI video
 4. translate the video back into frontend language with Qwen Omni
-5. generate a strict build handoff for downstream coding
+5. route the stack to the right component family or Web Components system
+6. generate a strict build handoff for downstream coding
 
 ## Included
 
@@ -14,11 +15,13 @@
 
 - `frontend-vibe-suite`
 - `frontend-style-interview`
+- `frontend-library-router`
 - `video-to-ui-brief`
 - `frontend-build-handoff`
 
 ### Scripts
 
+- `scripts/choose_library.py`
 - `scripts/render_prompt_pack.py`
 - `scripts/run_visual_loop.py`
 - `scripts/video_to_ui_brief.py`
@@ -27,16 +30,37 @@
 ### Example files
 
 - `examples/frontend-style-brief.example.json`
+- `examples/frontend-style-brief.vue.example.json`
+- `examples/frontend-style-brief.web-components.example.json`
+- `examples/library-route.react.example.json`
+- `examples/library-route.vue.example.json`
+- `examples/library-route.web-components.example.json`
 - `examples/frontend-prompt-pack.example.json`
 - `examples/video-ui-brief.example.json`
 - `examples/build-handoff.example.json`
 - `examples/build-handoff.example.md`
 
+## Library Routing
+
+This plugin keeps the stack choice explicit instead of defaulting everything to one UI kit.
+
+- React headless: `React Aria`, `Radix UI`, `Headless UI`
+- React source-first: `shadcn/ui`
+- React suites: `MUI`, `Ant Design`, `Chakra UI`, `Mantine`, `PrimeReact`
+- Vue suites: `PrimeVue`, `Quasar`, `Element Plus`, `Naive UI`, `Vuetify`
+- Angular: `PrimeNG`, `Ionic`
+- Svelte primitives: `Bits UI`, `Melt UI`
+- cross-framework behavior: `Zag.js`, `Ark UI`
+- portable Web Components: `Lit`, `Shoelace`, `Stencil`, `FAST`, `Fluent UI Web Components`, `Spectrum Web Components`, `Carbon Web Components`, `Vaadin`, `Material Web`
+- Tailwind-only layer: `DaisyUI`
+
+See [docs/component-library-routing.md](./docs/component-library-routing.md) for the full matrix and routing rules.
+
 ## Expected Workflow
 
 ### 1. Build the style brief
 
-Run the interview workflow until product, surface, mood, density, anti-goals, and implementation constraints are specific enough to drive image and video generation.
+Run the interview workflow until product, surface, mood, density, anti-goals, target stack, and implementation constraints are specific enough to drive image and video generation. If the stack is still broad, resolve it with `frontend-library-router` before rendering prompts.
 
 ### 2. Render the prompt pack
 
@@ -45,6 +69,16 @@ python3 plugins/frontend-vibe-suite/scripts/render_prompt_pack.py \
   --brief path/to/frontend-style-brief.json \
   --output path/to/frontend-prompt-pack.json
 ```
+
+If the library choice is still broad, resolve it before prompt generation:
+
+```bash
+python3 plugins/frontend-vibe-suite/scripts/choose_library.py \
+  --brief path/to/frontend-style-brief.json \
+  --output path/to/library-route.json
+```
+
+The machine-readable catalog behind this script lives at `data/component-libraries.json`.
 
 ### 3. Run the visual loop
 
@@ -97,7 +131,7 @@ Template:
 
 - `.env.example`
 
-## Scope in `0.0.1`
+## Scope in the current branch
 
 - style brief generation
 - prompt-pack generation

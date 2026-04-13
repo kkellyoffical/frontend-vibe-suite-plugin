@@ -6,6 +6,12 @@
 - Primary goal: help operators scan system health, spot anomalies, and act quickly
 - Users: ops lead, support engineer, founder reviewing status
 
+## Stack Context
+- Targets: Next.js, React, Tailwind CSS
+- Component preferences: Radix UI primitives, shadcn/ui, React Aria for accessible custom patterns
+
+- Library route: {"primary": "shadcn/ui", "fallback": ["PrimeReact", "Ant Design", "DaisyUI"], "frameworks": ["React", "Next.js"], "mode": "source-first", "reason": "framework fit for Next.js, React, Tailwind CSS, source-first delivery mode, dashboard product shape, Tailwind-friendly path", "caveats": ["styling: tailwind", "docs: https://ui.shadcn.com/docs"]}
+
 ## Visual System
 - Brand mood: precise, calm, high-signal, premium
 - Layout direction: left navigation, wide workspace, compact top filters, right-side detail drawer
@@ -82,6 +88,14 @@ Typography direction: clean grotesk sans for UI with a tighter data-oriented sca
 Motion direction: short purposeful reveals, panel slides, subtle chart transitions
 Content tone: operational and direct
 Visual references: Linear, Stripe Dashboard
+Target stacks: Next.js, React, Tailwind CSS
+Component preferences: Radix UI primitives, shadcn/ui, React Aria for accessible custom patterns
+Preferred library route: shadcn/ui
+Fallbacks: PrimeReact, Ant Design, DaisyUI
+Frameworks covered: React, Next.js
+Mode: source-first
+Reason: framework fit for Next.js, React, Tailwind CSS, source-first delivery mode, dashboard product shape, Tailwind-friendly path
+Caveats: styling: tailwind, docs: https://ui.shadcn.com/docs
 Must-have elements:
 - status summary row
 - alerts timeline
@@ -113,6 +127,14 @@ Style constraints:
 - task queue
 - detail drawer
 
+Stack context:
+- Next.js
+- React
+- Tailwind CSS
+- Radix UI primitives
+- shadcn/ui
+- React Aria for accessible custom patterns
+
 Translated regions and components:
 - left navigation rail
 - top filter and status bar
@@ -125,3 +147,11 @@ Translated regions and components:
 - alerts list
 - queue table
 - slide-over details panel
+
+Library route:
+Primary: shadcn/ui
+Fallbacks: PrimeReact, Ant Design, DaisyUI
+Frameworks: React, Next.js
+Mode: source-first
+Reason: framework fit for Next.js, React, Tailwind CSS, source-first delivery mode, dashboard product shape, Tailwind-friendly path
+Caveats: styling: tailwind, docs: https://ui.shadcn.com/docs

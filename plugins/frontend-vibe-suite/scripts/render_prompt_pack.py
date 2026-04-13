@@ -9,6 +9,14 @@ def load_brief(path: Path) -> dict:
         return json.load(handle)
 
 
+def list_or_empty(value):
+    if isinstance(value, list):
+        return value
+    if value in (None, ""):
+        return []
+    return [value]
+
+
 def bullet_list(values) -> str:
     if not values:
         return "- none provided"
@@ -28,6 +36,25 @@ def render_prompt_pack(brief: dict) -> dict:
     motion = brief.get("motionDirection", "restrained, meaningful transitions")
     content_tone = brief.get("contentTone", "product-facing, concise, useful")
     visual_refs = ", ".join(brief.get("visualReferences", [])) or "no explicit references"
+    stack_targets = ", ".join(list_or_empty(brief.get("stackTargets"))) or "not specified"
+    component_prefs = ", ".join(list_or_empty(brief.get("componentPreferences"))) or "not specified"
+    library_route = brief.get("libraryRoute") if isinstance(brief.get("libraryRoute"), dict) else None
+    library_route_text = ""
+    if library_route:
+        primary = library_route.get("primary")
+        fallback = ", ".join(list_or_empty(library_route.get("fallback")))
+        frameworks = ", ".join(list_or_empty(library_route.get("frameworks")))
+        mode = library_route.get("mode", "not specified")
+        reason = library_route.get("reason", "not specified")
+        caveats = ", ".join(list_or_empty(library_route.get("caveats")))
+        library_route_text = (
+            f"Preferred library route: {primary or 'not specified'}\n"
+            f"Fallbacks: {fallback or 'not specified'}\n"
+            f"Frameworks covered: {frameworks or 'not specified'}\n"
+            f"Mode: {mode}\n"
+            f"Reason: {reason}\n"
+            f"Caveats: {caveats or 'none'}\n"
+        )
 
     must_have = bullet_list(brief.get("mustHave", []))
     anti_goals = bullet_list(brief.get("antiGoals", []))
@@ -47,6 +74,9 @@ def render_prompt_pack(brief: dict) -> dict:
         f"Motion direction: {motion}\n"
         f"Content tone: {content_tone}\n"
         f"Visual references: {visual_refs}\n"
+        f"Target stacks: {stack_targets}\n"
+        f"Component preferences: {component_prefs}\n"
+        f"{library_route_text}"
         f"Must-have elements:\n{must_have}\n"
         f"Anti-goals:\n{anti_goals}\n"
         f"Technical constraints:\n{constraints}\n"
@@ -83,6 +113,11 @@ def render_prompt_pack(brief: dict) -> dict:
 
     return {
         "style_brief": brief,
+        "stack_profile": {
+            "targets": list_or_empty(brief.get("stackTargets")),
+            "component_preferences": list_or_empty(brief.get("componentPreferences")),
+            "library_route": library_route,
+        },
         "wan_image_prompt": wan_image_prompt,
         "wan_video_prompt": wan_video_prompt,
         "omni_translation_prompt": omni_translation_prompt,

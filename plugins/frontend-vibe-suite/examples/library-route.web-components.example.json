@@ -1,0 +1,23 @@
+{
+  "libraryRoute": {
+    "primary": "Lit",
+    "fallback": [
+      "Shoelace",
+      "Stencil",
+      "Carbon Web Components"
+    ],
+    "frameworks": [
+      "Web Components",
+      "React",
+      "Vue",
+      "Angular",
+      "Svelte"
+    ],
+    "mode": "portable",
+    "reason": "framework fit for Web Components, React, Vue, Angular, portable delivery mode, design-system product shape, high portability",
+    "caveats": [
+      "styling: custom-elements",
+      "docs: https://lit.dev/"
+    ]
+  }
+}

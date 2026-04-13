@@ -20,8 +20,14 @@ Cover these angles:
 5. typography and color direction
 6. motion and interaction feel
 7. content tone and copy sharpness
-8. constraints, stack, and acceptance criteria
-9. anti-goals
+8. target framework and component system
+9. constraints and acceptance criteria
+10. anti-goals
+
+If the stack is still broad, split the decision into:
+
+- framework family: Vue, Svelte, Angular, Solid, React, or Web Components
+- component strategy: framework-native suite, headless primitives, or portable Web Components
 
 ## Prompting Rules
 
@@ -53,12 +59,19 @@ Before moving on, collect enough detail to write:
   "typographyDirection": "",
   "motionDirection": "",
   "contentTone": "",
+  "stackTargets": [],
+  "componentPreferences": [],
   "mustHave": [],
   "antiGoals": [],
   "technicalConstraints": [],
   "acceptanceCriteria": []
 }
 ```
+
+`stackTargets` should list the chosen framework family or component system family, not just a package name.
+`componentPreferences` should list the preferred primitive or component libraries, for example `PrimeVue`, `Ark UI`, `Bits UI`, `Lit`, or `DaisyUI`.
+If a separate routing step is used, keep the concrete decision in `libraryRoute` and mirror only the primary choice into `stackTargets`.
+Use `frontend-library-router` when the user has only specified product shape and framework family, not an actual library.
 
 ## Exit Criteria
 
@@ -67,6 +80,7 @@ You are done only when:
 - the brief can drive a visual prototype without guessing
 - the anti-goals are concrete
 - the primary surface is explicit
+- the target stack or component model is explicit, or intentionally left broad
 - the implementation constraints are known or intentionally assumed
 
 ## Hand-off

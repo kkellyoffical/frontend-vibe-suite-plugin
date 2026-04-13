@@ -14,12 +14,15 @@ This workflow is for cases where the right output is:
 3. a structured translation of that visual direction back into frontend language
 4. implementation using the normal coding path
 
+If the user has not pinned a framework or component family, resolve that first with `frontend-library-router`.
+
 ## Use When
 
 - the user wants `vibecoding` for frontend work
 - the brief is visual, product-heavy, or under-specified
 - the user wants to lock style before writing code
 - the user wants Wan2.7 and Qwen Omni in the loop
+- the target stack matters and should influence the generated brief
 
 ## Do Not Use When
 
@@ -39,10 +42,28 @@ Invoke `frontend-style-interview` and keep going until these are specific:
 - density and interaction style
 - color and typography direction
 - motion attitude
+- target framework and component model
 - anti-goals
 - implementation constraints
 
 The output of this phase is a concise JSON or bullet brief that can drive prompt generation.
+
+If the user gives a stack, capture it explicitly. Keep it in one of these lanes:
+
+- headless primitives
+- source-first component libraries
+- full component suites
+- cross-framework design systems
+
+If the stack is still broad after the interview, route it with `frontend-library-router` and carry the result through as `libraryRoute`, then mirror the primary choice into `stackTargets` and `componentPreferences` before rendering prompts.
+
+You can materialize that route with:
+
+```bash
+python3 plugins/frontend-vibe-suite/scripts/choose_library.py \
+  --brief path/to/frontend-style-brief.json \
+  --output path/to/library-route.json
+```
 
 ### Phase 2: Render a prompt pack
 
@@ -60,6 +81,7 @@ That prompt pack contains:
 - `wan_video_prompt`
 - `omni_translation_prompt`
 - `build_handoff_prompt`
+- `stack_profile`
 
 ### Phase 3: Generate visual prototypes
 
@@ -123,6 +145,8 @@ Once the visual direction is grounded, continue with:
 - `ui-ux-pro-max` for systemized layout, tokens, states, and interaction polish
 - `visual-verdict` for iterative screenshot QA
 - `web-clone` only if the user is cloning a live reference site
+
+Use `docs/component-library-routing.md` as the reference when choosing a library family for the handoff.
 
 Treat the build handoff as the implementation source of truth unless the user overrides it.
 

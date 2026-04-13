@@ -28,6 +28,13 @@ def merge_handoff(style_brief: dict, translated_payload: dict, prompt_pack: dict
     translated = translated_payload.get("brief", translated_payload)
     anti_goals = list_or_empty(style_brief.get("antiGoals"))
     ambiguities = list_or_empty(translated.get("ambiguities"))
+    stack_targets = list_or_empty(style_brief.get("stackTargets"))
+    component_preferences = list_or_empty(style_brief.get("componentPreferences"))
+    library_route = style_brief.get("libraryRoute") if isinstance(style_brief.get("libraryRoute"), dict) else None
+    if not library_route and isinstance(translated.get("libraryRoute"), dict):
+        library_route = translated.get("libraryRoute")
+    if not library_route and prompt_pack:
+        library_route = prompt_pack.get("stack_profile", {}).get("library_route")
 
     coding_prompt_parts = []
     if prompt_pack and prompt_pack.get("build_handoff_prompt"):
@@ -39,9 +46,21 @@ def merge_handoff(style_brief: dict, translated_payload: dict, prompt_pack: dict
     coding_prompt_parts.append(
         "Style constraints:\n"
         f"{bullet(style_brief.get('mustHave'))}\n\n"
+        "Stack context:\n"
+        f"{bullet(stack_targets)}\n{bullet(component_preferences)}\n\n"
         "Translated regions and components:\n"
         f"{bullet(translated.get('page_regions'))}\n{bullet(translated.get('components'))}"
     )
+    if library_route:
+        coding_prompt_parts.append(
+            "Library route:\n"
+            f"Primary: {library_route.get('primary')}\n"
+            f"Fallbacks: {', '.join(list_or_empty(library_route.get('fallback')))}\n"
+            f"Frameworks: {', '.join(list_or_empty(library_route.get('frameworks')))}\n"
+            f"Mode: {library_route.get('mode')}\n"
+            f"Reason: {library_route.get('reason')}\n"
+            f"Caveats: {', '.join(list_or_empty(library_route.get('caveats')))}"
+        )
 
     return {
         "product_context": {
@@ -49,6 +68,11 @@ def merge_handoff(style_brief: dict, translated_payload: dict, prompt_pack: dict
             "surface": style_brief.get("surface"),
             "primary_goal": style_brief.get("primaryGoal"),
             "users": list_or_empty(style_brief.get("users")),
+        },
+        "stack_context": {
+            "targets": stack_targets,
+            "component_preferences": component_preferences,
+            "library_route": library_route,
         },
         "source_of_truth": {
             "style_brief_priority": True,
@@ -76,6 +100,7 @@ def merge_handoff(style_brief: dict, translated_payload: dict, prompt_pack: dict
             "technical_constraints": list_or_empty(style_brief.get("technicalConstraints")),
             "acceptance_criteria": list_or_empty(style_brief.get("acceptanceCriteria")),
         },
+        "library_route": library_route,
         "open_questions": ambiguities,
         "coding_prompt": "\n\n".join(coding_prompt_parts),
     }
@@ -85,6 +110,12 @@ def to_markdown(handoff: dict) -> str:
     product = handoff["product_context"]
     visual = handoff["visual_system"]
     impl = handoff["implementation_requirements"]
+    library_route = handoff.get("library_route")
+    library_route_block = ""
+    if library_route:
+        library_route_block = (
+            f"- Library route: {json.dumps(library_route, ensure_ascii=False)}\n\n"
+        )
     return (
         "# Frontend Build Handoff\n\n"
         "## Product Context\n"
@@ -92,6 +123,10 @@ def to_markdown(handoff: dict) -> str:
         f"- Surface: {product.get('surface')}\n"
         f"- Primary goal: {product.get('primary_goal')}\n"
         f"- Users: {', '.join(product.get('users', []))}\n\n"
+        "## Stack Context\n"
+        f"- Targets: {', '.join(handoff.get('stack_context', {}).get('targets', []))}\n"
+        f"- Component preferences: {', '.join(handoff.get('stack_context', {}).get('component_preferences', []))}\n\n"
+        f"{library_route_block}"
         "## Visual System\n"
         f"- Brand mood: {', '.join(visual.get('brand_mood', []))}\n"
         f"- Layout direction: {visual.get('layout_direction')}\n"

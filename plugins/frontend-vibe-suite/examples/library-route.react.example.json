@@ -1,0 +1,20 @@
+{
+  "libraryRoute": {
+    "primary": "shadcn/ui",
+    "fallback": [
+      "PrimeReact",
+      "Ant Design",
+      "DaisyUI"
+    ],
+    "frameworks": [
+      "React",
+      "Next.js"
+    ],
+    "mode": "source-first",
+    "reason": "framework fit for Next.js, React, Tailwind CSS, source-first delivery mode, dashboard product shape, Tailwind-friendly path",
+    "caveats": [
+      "styling: tailwind",
+      "docs: https://ui.shadcn.com/docs"
+    ]
+  }
+}

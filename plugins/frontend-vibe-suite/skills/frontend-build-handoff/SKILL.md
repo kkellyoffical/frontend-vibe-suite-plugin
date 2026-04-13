@@ -10,6 +10,9 @@ Use this skill after:
 - the style interview is done
 - the prompt pack exists
 - a design video has been translated into a UI brief
+- optional stack targets or component preferences are known
+
+If the stack choice is still broad, resolve it first with `frontend-library-router`.
 
 ## Goal
 
@@ -41,11 +44,15 @@ The handoff should contain:
 - product and surface context
 - immutable anti-goals
 - visual system constraints
+- stack targets and component preferences
+- recommended component family or Web Components route when the stack is broad
 - page regions and components
 - interaction and motion requirements
 - implementation constraints
 - unresolved questions
 - a coding prompt that can be handed to `frontend-skill` or `ui-ux-pro-max`
+
+If the style brief names a stack, keep that stack visible in the handoff instead of collapsing it into generic React language.
 
 ## Rule
 

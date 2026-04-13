@@ -22,7 +22,8 @@
 2. generate Wan2.7 concept prompts
 3. create a short UI showcase video
 4. translate that video with Qwen Omni
-5. hand a structured brief into normal coding workflows
+5. route the stack to the right component family or Web Components system
+6. hand a structured brief into normal coding workflows
 
 ## Why this exists
 
@@ -35,45 +36,34 @@ Most frontend codegen jumps from a thin request straight into JSX and CSS. This 
 
 That changes the workflow from "guess and build" to "design, read back, then build."
 
-## What ships in `0.0.1`
+## What ships in the current branch
 
 - `frontend-style-interview` for multi-round style discovery
+- `frontend-library-router` for framework and component-family routing
+- `choose_library.py` for machine-readable library routing
 - `render_prompt_pack.py` for Wan and Omni prompt generation
 - `run_visual_loop.py` for wrapping existing local Wan image and video skills
 - `video_to_ui_brief.py` for Qwen Omni video-to-UI translation
 - `build_handoff.py` for implementation-ready JSON and Markdown handoff files
 - example briefs and example generated artifacts
 - local marketplace metadata for Codex plugin loading
+- a stack-aware component routing guide for Vue, Svelte, Angular, Solid, React, and Web Components
 
-## Quick Start
+## Library Routing
 
-From the repository root:
+This repo keeps the stack choice explicit instead of forcing one UI kit.
 
-```bash
-python3 plugins/frontend-vibe-suite/scripts/render_prompt_pack.py \
-  --brief plugins/frontend-vibe-suite/examples/frontend-style-brief.example.json \
-  --output plugins/frontend-vibe-suite/examples/frontend-prompt-pack.example.json
-```
+- React headless: `React Aria`, `Radix UI`, `Headless UI`
+- React source-first: `shadcn/ui`
+- React suites: `MUI`, `Ant Design`, `Chakra UI`, `Mantine`, `PrimeReact`
+- Vue suites: `PrimeVue`, `Quasar`, `Element Plus`, `Naive UI`, `Vuetify`
+- Angular: `PrimeNG`, `Ionic`
+- Svelte: `Bits UI`, `Melt UI`
+- cross-framework behavior: `Zag.js`, `Ark UI`
+- portable Web Components: `Lit`, `Shoelace`, `Stencil`, `FAST`, `Fluent UI Web Components`, `Spectrum Web Components`, `Carbon Web Components`, `Vaadin`, `Material Web`
+- Tailwind-only layer: `DaisyUI`
 
-```bash
-python3 plugins/frontend-vibe-suite/scripts/build_handoff.py \
-  --style-brief plugins/frontend-vibe-suite/examples/frontend-style-brief.example.json \
-  --translated-brief plugins/frontend-vibe-suite/examples/video-ui-brief.example.json \
-  --prompt-pack plugins/frontend-vibe-suite/examples/frontend-prompt-pack.example.json \
-  --output-json plugins/frontend-vibe-suite/examples/build-handoff.example.json \
-  --output-md plugins/frontend-vibe-suite/examples/build-handoff.example.md
-```
-
-## Workflow
-
-```text
-Style interview
-  -> Prompt pack
-  -> Wan image/video generation
-  -> Qwen Omni translation
-  -> Build handoff
-  -> Frontend implementation
-```
+See the full matrix in [plugins/frontend-vibe-suite/docs/component-library-routing.md](./plugins/frontend-vibe-suite/docs/component-library-routing.md).
 
 ## Repository Layout
 
@@ -84,6 +74,10 @@ Style interview
 │   └── frontend-vibe-suite-hero.svg
 ├── plugins/
 │   └── frontend-vibe-suite/
+│       ├── data/
+│       │   └── component-libraries.json
+│       ├── docs/
+│       │   └── component-library-routing.md
 │       ├── .codex-plugin/plugin.json
 │       ├── skills/
 │       ├── scripts/
@@ -114,6 +108,12 @@ Template env file:
 - video translation still expects a public `video_url`
 - the Wan wrapper reuses existing local Wan skills instead of shipping its own SDK client
 - implementation ends at handoff generation, not automatic code patching
+- the target framework and component system should still be provided in the style brief when you want stack-specific output
+
+## Use
+
+Read [plugins/frontend-vibe-suite/README.md](./plugins/frontend-vibe-suite/README.md) for the operational workflow and command examples.
+Read [plugins/frontend-vibe-suite/docs/component-library-routing.md](./plugins/frontend-vibe-suite/docs/component-library-routing.md) for the routing matrix.
 
 ## Publish to GitHub
 

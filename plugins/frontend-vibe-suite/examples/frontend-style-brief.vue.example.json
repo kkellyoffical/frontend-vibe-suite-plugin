@@ -1,0 +1,63 @@
+{
+  "product": "B2B order operations console",
+  "surface": "desktop web app",
+  "primaryGoal": "help ops teams process orders and exceptions with low error rate",
+  "users": [
+    "operations specialist",
+    "warehouse lead"
+  ],
+  "brandMood": [
+    "clear",
+    "reliable",
+    "dense",
+    "utilitarian"
+  ],
+  "visualReferences": [
+    "enterprise admin UI",
+    "high-signal logistics console"
+  ],
+  "stackTargets": [
+    "Vue",
+    "Nuxt",
+    "Tailwind CSS"
+  ],
+  "componentPreferences": [
+    "PrimeVue",
+    "Element Plus"
+  ],
+  "libraryRoute": {
+    "primary": "PrimeVue",
+    "fallback": ["Element Plus", "Quasar"],
+    "frameworks": ["Vue", "Nuxt"],
+    "mode": "full-suite",
+    "reason": "broad Vue admin coverage with tables, forms, and enterprise widgets",
+    "caveats": ["Vue-focused", "theme system should be aligned early"]
+  },
+  "layoutDirection": "fixed left nav, compact header controls, wide table workspace, contextual side panel",
+  "density": "dense but readable",
+  "colorDirection": "neutral light surfaces with restrained status colors",
+  "typographyDirection": "system sans with small but legible data scale",
+  "motionDirection": "minimal transitions and panel reveals only",
+  "contentTone": "operational and direct",
+  "mustHave": [
+    "filter bar",
+    "bulk action toolbar",
+    "data table",
+    "exception queue",
+    "detail drawer"
+  ],
+  "antiGoals": [
+    "marketing copy",
+    "glassy surfaces",
+    "oversized empty spacing"
+  ],
+  "technicalConstraints": [
+    "Nuxt SSR compatibility",
+    "keyboard-friendly table operations",
+    "WCAG AA contrast"
+  ],
+  "acceptanceCriteria": [
+    "operators can scan order state in under 15 seconds",
+    "critical exceptions remain visible above the fold"
+  ]
+}

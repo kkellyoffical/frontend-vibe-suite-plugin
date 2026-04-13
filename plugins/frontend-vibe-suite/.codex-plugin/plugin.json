@@ -1,7 +1,7 @@
 {
   "name": "frontend-vibe-suite",
   "version": "0.0.1",
-  "description": "A multimodal frontend development plugin that turns style interviews into Wan design videos, translates them with Qwen Omni, and hands a grounded brief back to implementation workflows.",
+  "description": "A multimodal frontend development plugin that turns style interviews into Wan design videos, translates them with Qwen Omni, and routes implementation toward the right framework, component library, or Web Components stack.",
   "author": {
     "name": "kkellyoffical"
   },
@@ -13,13 +13,29 @@
     "wan2.7",
     "qwen-omni",
     "ui",
-    "ux"
+    "ux",
+    "web-components",
+    "vue",
+    "svelte",
+    "angular",
+    "solid",
+    "primevue",
+    "quasar",
+    "element-plus",
+    "vuetify",
+    "daisyui",
+    "ark-ui",
+    "bits-ui",
+    "melt-ui",
+    "lit",
+    "shoelace",
+    "ionic"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Frontend Vibe Suite",
-    "shortDescription": "Run a multimodal frontend loop from style interview to design video to implementation handoff",
-    "longDescription": "Use Frontend Vibe Suite to interview for style intent, generate Wan2.7 concept assets and showcase videos, translate those videos into structured frontend briefs with Qwen Omni, and then continue implementation with existing frontend coding workflows.",
+    "shortDescription": "Run a multimodal frontend loop from style interview to design video to routed implementation handoff",
+    "longDescription": "Use Frontend Vibe Suite to interview for style intent, capture stack and component preferences, generate Wan2.7 concept assets and showcase videos, translate those videos into structured frontend briefs with Qwen Omni, route the work to the right component family or Web Components stack, and then continue implementation with existing frontend coding workflows.",
     "developerName": "kkellyoffical",
     "category": "Coding",
     "capabilities": [
@@ -30,7 +46,9 @@
     "defaultPrompt": [
       "Run a frontend vibe loop from requirements to a design video and implementation brief",
       "Interview me for product style and generate a Wan2.7 prototype video",
-      "Translate this UI design video into a structured frontend brief"
+      "Translate this UI design video into a structured frontend brief",
+      "Route my app to the right Vue, Svelte, Angular, Solid, or Web Components library",
+      "Choose between framework-native suites, headless primitives, and Web Components"
     ],
     "brandColor": "#1F6FEB",
     "screenshots": []

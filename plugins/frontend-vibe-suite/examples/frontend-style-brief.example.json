@@ -17,6 +17,34 @@
     "Linear",
     "Stripe Dashboard"
   ],
+  "stackTargets": [
+    "Next.js",
+    "React",
+    "Tailwind CSS"
+  ],
+  "componentPreferences": [
+    "Radix UI primitives",
+    "shadcn/ui",
+    "React Aria for accessible custom patterns"
+  ],
+  "libraryRoute": {
+    "primary": "shadcn/ui",
+    "fallback": [
+      "PrimeReact",
+      "Ant Design",
+      "DaisyUI"
+    ],
+    "frameworks": [
+      "React",
+      "Next.js"
+    ],
+    "mode": "source-first",
+    "reason": "framework fit for Next.js, React, Tailwind CSS, source-first delivery mode, dashboard product shape, Tailwind-friendly path",
+    "caveats": [
+      "styling: tailwind",
+      "docs: https://ui.shadcn.com/docs"
+    ]
+  },
   "layoutDirection": "left navigation, wide workspace, compact top filters, right-side detail drawer",
   "density": "dense but readable",
   "colorDirection": "charcoal base with cool neutral surfaces and one cyan action accent",
