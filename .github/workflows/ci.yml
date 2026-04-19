@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile scripts
+        run: python3 -m py_compile plugins/frontend-vibe-suite/scripts/*.py
+
+      - name: Validate JSON examples
+        run: |
+          python3 -m json.tool plugins/frontend-vibe-suite/.codex-plugin/plugin.json >/dev/null
+          python3 -m json.tool plugins/frontend-vibe-suite/data/component-libraries.json >/dev/null
+          python3 -m json.tool plugins/frontend-vibe-suite/data/prompt-scenarios.json >/dev/null
+          python3 -m json.tool plugins/frontend-vibe-suite/examples/frontend-style-brief.example.json >/dev/null
+          python3 -m json.tool plugins/frontend-vibe-suite/examples/frontend-style-brief.vue.example.json >/dev/null
+          python3 -m json.tool plugins/frontend-vibe-suite/examples/frontend-style-brief.web-components.example.json >/dev/null
+          python3 -m json.tool plugins/frontend-vibe-suite/examples/frontend-prompt-pack.example.json >/dev/null
+          python3 -m json.tool plugins/frontend-vibe-suite/examples/build-handoff.example.json >/dev/null
+
+      - name: Run tests
+        run: python3 -m unittest discover -s tests -p 'test_*.py'

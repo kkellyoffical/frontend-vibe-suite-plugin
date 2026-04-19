@@ -28,6 +28,8 @@ def bullet_list(values) -> str:
 
 
 def choose_scenario(catalog: dict, brief: dict, scenario_hint: str) -> dict:
+    if not scenario_hint:
+        scenario_hint = str(brief.get("promptScenario", ""))
     scenarios = catalog.get("scenarios", [])
     ranked = sorted(
         scenarios,

@@ -141,10 +141,12 @@ Template:
 
 - `.env.example`
 
-## Scope in the current branch
+## Scope in `0.0.2`
 
 - style brief generation
 - scenario-aware prompt generation across at least 20 UI situations
+- machine-readable scenario selection
+- machine-readable component-library selection
 - prompt-pack generation
 - wrapper for existing Wan skills
 - Qwen Omni translation over the DashScope OpenAI-compatible API

@@ -8,7 +8,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/release-0.0.1-1f6feb" alt="release 0.0.1" />
+  <img src="https://img.shields.io/badge/release-0.0.2-1f6feb" alt="release 0.0.2" />
+  <img src="https://github.com/kkellyoffical/frontend-vibe-suite-plugin/actions/workflows/ci.yml/badge.svg" alt="CI" />
   <img src="https://img.shields.io/badge/plugin-Codex-0b1020" alt="Codex plugin" />
   <img src="https://img.shields.io/badge/models-Wan2.7%20%2B%20Qwen%20Omni-54c7ec" alt="Wan and Qwen Omni" />
   <img src="https://img.shields.io/badge/license-MIT-34d399" alt="MIT license" />
@@ -36,7 +37,7 @@ Most frontend codegen jumps from a thin request straight into JSX and CSS. This 
 
 That changes the workflow from "guess and build" to "design, read back, then build."
 
-## What ships in the current branch
+## What ships in `0.0.2`
 
 - `frontend-style-interview` for multi-round style discovery
 - `frontend-library-router` for framework and component-family routing
@@ -46,6 +47,7 @@ That changes the workflow from "guess and build" to "design, read back, then bui
 - `run_visual_loop.py` for wrapping existing local Wan image and video skills
 - `video_to_ui_brief.py` for Qwen Omni video-to-UI translation
 - `build_handoff.py` for implementation-ready JSON and Markdown handoff files
+- repository CI and Python unit tests
 - example briefs and example generated artifacts
 - local marketplace metadata for Codex plugin loading
 - a stack-aware component routing guide for Vue, Svelte, Angular, Solid, React, and Web Components
