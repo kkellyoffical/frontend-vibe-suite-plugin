@@ -1,0 +1,2 @@
+# No third-party Python packages are required for the repository scripts.
+# All current Python tooling runs on the standard library.

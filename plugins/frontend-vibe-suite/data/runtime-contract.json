@@ -1,0 +1,65 @@
+{
+  "requiredEnv": [
+    {
+      "name": "DASHSCOPE_API_KEY",
+      "required": true,
+      "usedBy": [
+        "scripts/video_to_ui_brief.py"
+      ],
+      "purpose": "Authenticate Qwen Omni requests through the DashScope OpenAI-compatible API."
+    }
+  ],
+  "optionalEnv": [
+    {
+      "name": "DASHSCOPE_BASE_URL",
+      "usedBy": [
+        "scripts/video_to_ui_brief.py"
+      ],
+      "purpose": "Override the DashScope OpenAI-compatible API base URL."
+    },
+    {
+      "name": "QWEN_OMNI_MODEL",
+      "usedBy": [
+        "scripts/video_to_ui_brief.py"
+      ],
+      "purpose": "Override the default Qwen Omni model used for video translation."
+    }
+  ],
+  "pythonDependencies": [],
+  "networkAccess": {
+    "firstParty": [
+      "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
+    ],
+    "userProvidedUrls": [
+      "public video URLs passed to video_to_ui_brief.py",
+      "public media URLs passed through wrapped wan27-video flows"
+    ],
+    "notes": [
+      "The repo scripts do not install packages or fetch code.",
+      "run_visual_loop.py invokes existing local Wan scripts and does not itself define extra network endpoints."
+    ]
+  },
+  "subprocesses": [
+    {
+      "script": "scripts/run_visual_loop.py",
+      "calls": [
+        "~/.codex/skills/wan27-image/scripts/generate.py",
+        "~/.codex/skills/wan27-video/scripts/generate.py"
+      ],
+      "purpose": "Reuse local Wan skills for image and video generation."
+    }
+  ],
+  "fileBehavior": {
+    "reads": [
+      "style brief JSON files",
+      "prompt-pack JSON files",
+      "translated brief JSON files",
+      ".env files under the plugin and local Wan skill directories"
+    ],
+    "writes": [
+      "generated JSON artifacts",
+      "generated Markdown handoff files",
+      "visual-run manifest JSON"
+    ]
+  }
+}

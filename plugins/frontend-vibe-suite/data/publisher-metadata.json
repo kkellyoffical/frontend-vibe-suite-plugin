@@ -1,0 +1,117 @@
+{
+  "packageName": "frontend-vibe-suite",
+  "displayName": "Frontend Vibe Suite",
+  "family": "bundle-plugin",
+  "bundleFormat": "codex",
+  "hostTargets": ["codex", "openclaw"],
+  "sourceRepo": "kkellyoffical/frontend-vibe-suite-plugin",
+  "sourcePath": "plugins/frontend-vibe-suite",
+  "channel": "community",
+  "summary": "Multimodal frontend workflow plugin with stack-aware library routing and scenario-aware prompt generation.",
+  "tagTaxonomy": {
+    "capability": [
+      "frontend-development",
+      "design-to-code",
+      "prompt-routing",
+      "component-library-routing",
+      "release-preflight"
+    ],
+    "frameworks": [
+      "react",
+      "nextjs",
+      "vue",
+      "nuxt",
+      "angular",
+      "svelte",
+      "solid",
+      "web-components"
+    ],
+    "modality": [
+      "wan2.7",
+      "qwen-omni",
+      "image-generation",
+      "video-generation",
+      "video-understanding"
+    ],
+    "delivery": [
+      "dashboard",
+      "workspace",
+      "admin",
+      "commerce",
+      "documentation",
+      "mobile"
+    ],
+    "libraries": [
+      "react-aria",
+      "radix-ui",
+      "shadcn-ui",
+      "mui",
+      "ant-design",
+      "chakra-ui",
+      "mantine",
+      "ark-ui",
+      "zagjs",
+      "primevue",
+      "primeng",
+      "primereact",
+      "quasar",
+      "element-plus",
+      "naive-ui",
+      "vuetify",
+      "bits-ui",
+      "melt-ui",
+      "lit",
+      "shoelace",
+      "stencil",
+      "daisyui",
+      "ionic"
+    ]
+  },
+  "qualityGates": [
+    "python -m unittest discover -s tests -p test_*.py",
+    "python -m py_compile plugins/frontend-vibe-suite/scripts/*.py",
+    "python -m json.tool plugins/frontend-vibe-suite/.codex-plugin/plugin.json",
+    "python -m json.tool plugins/frontend-vibe-suite/data/component-libraries.json",
+    "python -m json.tool plugins/frontend-vibe-suite/data/prompt-scenarios.json",
+    "python -m json.tool plugins/frontend-vibe-suite/data/publisher-metadata.json",
+    "python plugins/frontend-vibe-suite/scripts/release_preflight.py"
+  ],
+  "adaptationMatrix": {
+    "codex": {
+      "supported": [
+        "skills",
+        "codex metadata",
+        "bundle docs",
+        "example assets"
+      ],
+      "caveats": [
+        "Publisher metadata is repo-owned, not part of the base Codex bundle schema."
+      ]
+    },
+    "openclaw": {
+      "supported": [
+        "skill roots",
+        "MCP config",
+        "OpenClaw hook-pack roots when present"
+      ],
+      "detectOnly": [
+        "inline Codex app metadata beyond capability reporting"
+      ],
+      "caveats": [
+        "Bundle installs are capability-mapped rather than native runtime modules.",
+        "Compatible bundle behavior follows OpenClaw bundle support, not native plugin SDK guarantees."
+      ]
+    },
+    "clawhub": {
+      "supported": [
+        "bundle-plugin publishing",
+        "source-linked verification",
+        "community channel discovery"
+      ],
+      "caveats": [
+        "New releases can stay private or partially surfaced until automated scanning finishes.",
+        "Publisher CLI behavior can vary by clawhub CLI version."
+      ]
+    }
+  }
+}

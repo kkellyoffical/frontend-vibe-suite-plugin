@@ -141,7 +141,22 @@ Template:
 
 - `.env.example`
 
-## Scope in `0.0.2`
+## Security and Runtime
+
+This plugin is intentionally explicit about runtime behavior.
+
+- required env vars: `DASHSCOPE_API_KEY`
+- optional env vars: `DASHSCOPE_BASE_URL`, `QWEN_OMNI_MODEL`
+- Python dependencies: standard library only
+- direct network egress: DashScope OpenAI-compatible API from `video_to_ui_brief.py`
+- indirect network egress: local Wan helper scripts invoked by `run_visual_loop.py`
+
+See:
+
+- [docs/security-and-runtime.md](./docs/security-and-runtime.md)
+- [data/runtime-contract.json](./data/runtime-contract.json)
+
+## Scope in `0.0.3`
 
 - style brief generation
 - scenario-aware prompt generation across at least 20 UI situations
@@ -151,6 +166,7 @@ Template:
 - wrapper for existing Wan skills
 - Qwen Omni translation over the DashScope OpenAI-compatible API
 - implementation handoff generation
+- explicit runtime contract and release preflight
 
 Not included yet:
 

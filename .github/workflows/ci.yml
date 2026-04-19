@@ -8,6 +8,8 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,11 +27,16 @@ jobs:
           python3 -m json.tool plugins/frontend-vibe-suite/.codex-plugin/plugin.json >/dev/null
           python3 -m json.tool plugins/frontend-vibe-suite/data/component-libraries.json >/dev/null
           python3 -m json.tool plugins/frontend-vibe-suite/data/prompt-scenarios.json >/dev/null
+          python3 -m json.tool plugins/frontend-vibe-suite/data/publisher-metadata.json >/dev/null
+          python3 -m json.tool plugins/frontend-vibe-suite/data/runtime-contract.json >/dev/null
           python3 -m json.tool plugins/frontend-vibe-suite/examples/frontend-style-brief.example.json >/dev/null
           python3 -m json.tool plugins/frontend-vibe-suite/examples/frontend-style-brief.vue.example.json >/dev/null
           python3 -m json.tool plugins/frontend-vibe-suite/examples/frontend-style-brief.web-components.example.json >/dev/null
           python3 -m json.tool plugins/frontend-vibe-suite/examples/frontend-prompt-pack.example.json >/dev/null
           python3 -m json.tool plugins/frontend-vibe-suite/examples/build-handoff.example.json >/dev/null
+
+      - name: Release preflight
+        run: python3 plugins/frontend-vibe-suite/scripts/release_preflight.py
 
       - name: Run tests
         run: python3 -m unittest discover -s tests -p 'test_*.py'

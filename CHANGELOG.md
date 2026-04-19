@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.0.3 - 2026-04-19
+
+Publishing-hardening and metadata-transparency release.
+
+Included:
+
+- explicit publisher metadata for package family, host targets, and tag taxonomy
+- explicit runtime contract covering env vars, network behavior, subprocesses, and file IO
+- release preflight script enforcing version, metadata, and bundle hygiene checks
+- repo-level `requirements.txt` documenting standard-library-only Python usage
+- CI extended to validate publisher/runtime metadata and run release preflight
+- removal of compiled Python bytecode from the release tree
+
 ## 0.0.2 - 2026-04-19
 
 Quality, routing, and prompt-template release.

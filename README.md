@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/release-0.0.2-1f6feb" alt="release 0.0.2" />
+  <img src="https://img.shields.io/badge/release-0.0.3-1f6feb" alt="release 0.0.3" />
   <img src="https://github.com/kkellyoffical/frontend-vibe-suite-plugin/actions/workflows/ci.yml/badge.svg" alt="CI" />
   <img src="https://img.shields.io/badge/plugin-Codex-0b1020" alt="Codex plugin" />
   <img src="https://img.shields.io/badge/models-Wan2.7%20%2B%20Qwen%20Omni-54c7ec" alt="Wan and Qwen Omni" />
@@ -37,7 +37,7 @@ Most frontend codegen jumps from a thin request straight into JSX and CSS. This 
 
 That changes the workflow from "guess and build" to "design, read back, then build."
 
-## What ships in `0.0.2`
+## What ships in `0.0.3`
 
 - `frontend-style-interview` for multi-round style discovery
 - `frontend-library-router` for framework and component-family routing
@@ -48,6 +48,7 @@ That changes the workflow from "guess and build" to "design, read back, then bui
 - `video_to_ui_brief.py` for Qwen Omni video-to-UI translation
 - `build_handoff.py` for implementation-ready JSON and Markdown handoff files
 - repository CI and Python unit tests
+- explicit publisher metadata, runtime contract, and release preflight
 - example briefs and example generated artifacts
 - local marketplace metadata for Codex plugin loading
 - a stack-aware component routing guide for Vue, Svelte, Angular, Solid, React, and Web Components
@@ -68,6 +69,24 @@ This repo keeps the stack choice explicit instead of forcing one UI kit.
 - Tailwind-only layer: `DaisyUI`
 
 See the full matrix in [plugins/frontend-vibe-suite/docs/component-library-routing.md](./plugins/frontend-vibe-suite/docs/component-library-routing.md).
+
+## Publishing and Runtime Transparency
+
+This repo now carries explicit publisher and runtime metadata instead of burying release assumptions in ad hoc notes.
+
+- publisher contract: [plugins/frontend-vibe-suite/docs/publisher-adaptation-and-tags.md](./plugins/frontend-vibe-suite/docs/publisher-adaptation-and-tags.md)
+- publisher metadata: [plugins/frontend-vibe-suite/data/publisher-metadata.json](./plugins/frontend-vibe-suite/data/publisher-metadata.json)
+- runtime contract: [plugins/frontend-vibe-suite/docs/security-and-runtime.md](./plugins/frontend-vibe-suite/docs/security-and-runtime.md)
+- release preflight: [plugins/frontend-vibe-suite/scripts/release_preflight.py](./plugins/frontend-vibe-suite/scripts/release_preflight.py)
+- reproducible publish command: [plugins/frontend-vibe-suite/scripts/render_publish_command.py](./plugins/frontend-vibe-suite/scripts/render_publish_command.py)
+
+The current release policy is explicit about:
+
+- required environment variables
+- standard-library-only Python scripts
+- expected network targets
+- subprocess usage
+- bundle host targets and adaptation caveats
 
 ## Repository Layout
 
