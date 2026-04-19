@@ -91,3 +91,9 @@ This repo should not publish:
 - undeclared runtime dependencies
 
 If any of those appear, treat it as a release bug and fail preflight.
+
+Release hygiene helper:
+
+```bash
+python3 plugins/frontend-vibe-suite/scripts/clean_release_tree.py
+```

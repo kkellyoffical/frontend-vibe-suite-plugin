@@ -80,11 +80,11 @@ def build_video_command(prompt_pack: dict, args: argparse.Namespace) -> list[str
     if args.video_mode == "i2v":
         if not args.first_frame_url:
             raise ValueError("i2v mode requires --first-frame-url")
-        command.extend(["--media", f"first_frame={args.first_frame_url}"])
+        command.extend(["--first-frame-url", args.first_frame_url])
         if args.last_frame_url:
-            command.extend(["--media", f"last_frame={args.last_frame_url}"])
+            command.extend(["--last-frame-url", args.last_frame_url])
         if args.driving_audio_url:
-            command.extend(["--media", f"driving_audio={args.driving_audio_url}"])
+            command.extend(["--driving-audio-url", args.driving_audio_url])
 
     return command
 

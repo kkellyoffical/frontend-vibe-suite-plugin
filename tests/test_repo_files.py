@@ -35,6 +35,8 @@ class RepoFileTests(unittest.TestCase):
         self.assertIn("component-library-routing.md", root_readme)
         self.assertIn("prompt-scenarios.json", plugin_readme)
         self.assertIn("DASHSCOPE_API_KEY", plugin_readme)
+        self.assertIn("0.0.4", root_readme)
+        self.assertIn("0.0.4", plugin_readme)
 
     def test_runtime_contract_declares_required_env(self):
         data = json.loads(

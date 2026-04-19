@@ -32,6 +32,7 @@ class PromptPipelineTests(unittest.TestCase):
         cls.select_prompt_template = load_script_module("select_prompt_template", "select_prompt_template.py")
         cls.choose_library = load_script_module("choose_library", "choose_library.py")
         cls.build_handoff = load_script_module("build_handoff", "build_handoff.py")
+        cls.run_visual_loop = load_script_module("run_visual_loop", "run_visual_loop.py")
 
     def load_json(self, path: Path):
         return json.loads(path.read_text(encoding="utf-8"))
@@ -121,6 +122,29 @@ class PromptPipelineTests(unittest.TestCase):
             self.assertTrue(prompt_path.exists())
             self.assertTrue(handoff_path.exists())
             self.assertTrue(markdown_path.exists())
+
+    def test_i2v_command_uses_explicit_flags(self):
+        prompt_pack = self.load_json(EXAMPLES_DIR / "frontend-prompt-pack.example.json")
+        args = type(
+            "Args",
+            (),
+            {
+                "video_mode": "i2v",
+                "video_region": "beijing",
+                "video_resolution": "720P",
+                "video_duration": 5,
+                "video_output": "artifacts/concept.mp4",
+                "video_ratio": "16:9",
+                "first_frame_url": "https://example.com/first.png",
+                "last_frame_url": "https://example.com/last.png",
+                "driving_audio_url": "https://example.com/audio.mp3"
+            },
+        )()
+        command = self.run_visual_loop.build_video_command(prompt_pack, args)
+        self.assertIn("--first-frame-url", command)
+        self.assertIn("--last-frame-url", command)
+        self.assertIn("--driving-audio-url", command)
+        self.assertNotIn("--media", command)
 
 
 if __name__ == "__main__":

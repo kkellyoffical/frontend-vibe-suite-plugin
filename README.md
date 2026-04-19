@@ -128,10 +128,10 @@ Template env file:
 
 - `plugins/frontend-vibe-suite/.env.example`
 
-## Limits in `0.0.1`
+## Limits in `0.0.4`
 
 - video translation still expects a public `video_url`
-- the Wan wrapper reuses existing local Wan skills instead of shipping its own SDK client
+- the plugin now ships its own Wan wrappers, but still depends on DashScope at runtime
 - implementation ends at handoff generation, not automatic code patching
 - the target framework and component system should still be provided in the style brief when you want stack-specific output
 

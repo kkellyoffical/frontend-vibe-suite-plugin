@@ -140,6 +140,7 @@ Before publishing a new version:
 5. tests pass
 6. JSON catalogs validate
 7. release metadata still matches the repo source path and package name
+8. `clean_release_tree.py` has been run so no bytecode artifacts are packed
 
 ## Why this file exists
 

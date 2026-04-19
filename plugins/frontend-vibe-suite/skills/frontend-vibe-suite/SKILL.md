@@ -1,6 +1,7 @@
 ---
 name: frontend-vibe-suite
 description: Run a multimodal frontend workflow that interviews for design intent, generates Wan2.7 prompts and showcase videos, translates the resulting video with Qwen Omni, and then hands a grounded brief back to implementation skills.
+metadata: {"openclaw":{"requires":{"env":["DASHSCOPE_API_KEY"]},"primaryEnv":"DASHSCOPE_API_KEY","skillKey":"frontend-vibe-suite"}}
 ---
 
 # Frontend Vibe Suite

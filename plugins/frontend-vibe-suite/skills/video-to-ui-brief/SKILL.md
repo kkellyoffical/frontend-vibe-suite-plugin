@@ -1,6 +1,7 @@
 ---
 name: video-to-ui-brief
 description: Translate a generated UI showcase video into structured frontend language using a Qwen Omni model over the DashScope OpenAI-compatible API.
+metadata: {"openclaw":{"requires":{"env":["DASHSCOPE_API_KEY"]},"primaryEnv":"DASHSCOPE_API_KEY","skillKey":"video-to-ui-brief"}}
 ---
 
 # Video To UI Brief

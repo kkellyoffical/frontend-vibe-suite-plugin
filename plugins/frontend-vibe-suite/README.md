@@ -157,6 +157,7 @@ See:
 
 - [docs/security-and-runtime.md](./docs/security-and-runtime.md)
 - [data/runtime-contract.json](./data/runtime-contract.json)
+- [scripts/clean_release_tree.py](./scripts/clean_release_tree.py)
 
 ## Scope in `0.0.4`
 
@@ -165,7 +166,7 @@ See:
 - machine-readable scenario selection
 - machine-readable component-library selection
 - prompt-pack generation
-- wrapper for existing Wan skills
+- plugin-local Wan wrappers
 - Qwen Omni translation over the DashScope OpenAI-compatible API
 - implementation handoff generation
 - explicit runtime contract and release preflight
