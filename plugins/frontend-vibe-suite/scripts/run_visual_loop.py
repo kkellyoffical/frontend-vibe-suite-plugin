@@ -6,8 +6,9 @@ import sys
 from pathlib import Path
 
 
-IMAGE_SCRIPT = Path.home() / ".codex/skills/wan27-image/scripts/generate.py"
-VIDEO_SCRIPT = Path.home() / ".codex/skills/wan27-video/scripts/generate.py"
+SCRIPT_DIR = Path(__file__).resolve().parent
+IMAGE_SCRIPT = SCRIPT_DIR / "generate_wan_image.py"
+VIDEO_SCRIPT = SCRIPT_DIR / "generate_wan_video.py"
 
 
 def load_json(path: Path) -> dict:

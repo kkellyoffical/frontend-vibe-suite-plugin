@@ -4,9 +4,11 @@
       "name": "DASHSCOPE_API_KEY",
       "required": true,
       "usedBy": [
-        "scripts/video_to_ui_brief.py"
+        "scripts/video_to_ui_brief.py",
+        "scripts/generate_wan_image.py",
+        "scripts/generate_wan_video.py"
       ],
-      "purpose": "Authenticate Qwen Omni requests through the DashScope OpenAI-compatible API."
+      "purpose": "Authenticate DashScope calls for Qwen Omni translation and plugin-local Wan generation."
     }
   ],
   "optionalEnv": [
@@ -28,25 +30,27 @@
   "pythonDependencies": [],
   "networkAccess": {
     "firstParty": [
-      "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
+      "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+      "https://dashscope-intl.aliyuncs.com/api/v1",
+      "https://dashscope.aliyuncs.com/api/v1"
     ],
     "userProvidedUrls": [
       "public video URLs passed to video_to_ui_brief.py",
-      "public media URLs passed through wrapped wan27-video flows"
+      "public first-frame, last-frame, or driving-audio URLs passed to plugin-local Wan i2v flows"
     ],
     "notes": [
       "The repo scripts do not install packages or fetch code.",
-      "run_visual_loop.py invokes existing local Wan scripts and does not itself define extra network endpoints."
+      "run_visual_loop.py invokes plugin-local Wan wrappers instead of home-directory skill scripts."
     ]
   },
   "subprocesses": [
     {
       "script": "scripts/run_visual_loop.py",
       "calls": [
-        "~/.codex/skills/wan27-image/scripts/generate.py",
-        "~/.codex/skills/wan27-video/scripts/generate.py"
+        "scripts/generate_wan_image.py",
+        "scripts/generate_wan_video.py"
       ],
-      "purpose": "Reuse local Wan skills for image and video generation."
+      "purpose": "Run plugin-local Wan wrappers for image and video generation."
     }
   ],
   "fileBehavior": {
@@ -54,7 +58,7 @@
       "style brief JSON files",
       "prompt-pack JSON files",
       "translated brief JSON files",
-      ".env files under the plugin and local Wan skill directories"
+      "the plugin-local .env file only"
     ],
     "writes": [
       "generated JSON artifacts",

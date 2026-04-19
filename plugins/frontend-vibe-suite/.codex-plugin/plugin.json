@@ -1,6 +1,6 @@
 {
   "name": "frontend-vibe-suite",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A multimodal frontend development plugin that turns style interviews into Wan design videos, translates them with Qwen Omni, and routes implementation toward the right framework, component library, or Web Components stack.",
   "author": {
     "name": "kkellyoffical"

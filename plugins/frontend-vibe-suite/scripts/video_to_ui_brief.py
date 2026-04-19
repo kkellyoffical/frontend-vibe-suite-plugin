@@ -10,9 +10,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 ENV_CANDIDATES = [
-    SCRIPT_DIR.parent / ".env",
-    Path.home() / ".codex/skills/wan27-video/.env",
-    Path.home() / ".codex/skills/wan27-image/.env",
+    SCRIPT_DIR.parent / ".env"
 ]
 DEFAULT_BASE_URL = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
 DEFAULT_MODEL = "qwen3-omni-flash"

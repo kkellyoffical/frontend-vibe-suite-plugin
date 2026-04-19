@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -33,6 +34,11 @@ def main() -> int:
     hero_svg = (REPO_ROOT / "assets" / "frontend-vibe-suite-hero.svg").read_text(encoding="utf-8")
     env_example = (PLUGIN_ROOT / ".env.example").read_text(encoding="utf-8")
     requirements = (REPO_ROOT / "requirements.txt").read_text(encoding="utf-8")
+    runtime_scripts = [
+        (PLUGIN_ROOT / "scripts" / "video_to_ui_brief.py").read_text(encoding="utf-8"),
+        (PLUGIN_ROOT / "scripts" / "run_visual_loop.py").read_text(encoding="utf-8"),
+    ]
+    runtime_script_text = "\n".join(runtime_scripts)
 
     version = plugin_manifest.get("version", "")
     require(bool(re.fullmatch(r"\d+\.\d+\.\d+", version)), "plugin version is not semver", errors)
@@ -63,11 +69,12 @@ def main() -> int:
     require("DASHSCOPE_API_KEY" in env_example, ".env.example must list DASHSCOPE_API_KEY", errors)
     require("DASHSCOPE_API_KEY" in plugin_readme, "plugin README must mention DASHSCOPE_API_KEY", errors)
     require("standard library" in requirements.lower(), "requirements.txt should explicitly document stdlib-only Python usage", errors)
+    require(".codex/skills/wan27" not in runtime_script_text, "runtime scripts should not reference home-directory Wan skill paths", errors)
+    require(".claude/skills/wan27" not in runtime_script_text, "runtime scripts should not reference Claude-side Wan skill paths", errors)
 
-    pyc_files = list(REPO_ROOT.rglob("*.pyc"))
-    pycache_dirs = list(REPO_ROOT.rglob("__pycache__"))
-    require(not pyc_files, f"release tree contains .pyc files: {[str(p) for p in pyc_files[:3]]}", errors)
-    require(not pycache_dirs, f"release tree contains __pycache__ directories: {[str(p) for p in pycache_dirs[:3]]}", errors)
+    tracked = subprocess.check_output(["git", "-C", str(REPO_ROOT), "ls-files"], text=True).splitlines()
+    tracked_pyc = [path for path in tracked if path.endswith(".pyc") or "__pycache__/" in path]
+    require(not tracked_pyc, f"release tree tracks Python bytecode artifacts: {tracked_pyc[:5]}", errors)
 
     if errors:
         for error in errors:

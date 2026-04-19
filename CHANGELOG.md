@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.3 - 2026-04-19
+## 0.0.4 - 2026-04-19
 
 Publishing-hardening and metadata-transparency release.
 

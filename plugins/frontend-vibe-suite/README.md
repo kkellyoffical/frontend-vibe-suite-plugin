@@ -92,7 +92,7 @@ The machine-readable catalogs behind this flow live at `data/component-libraries
 
 ### 4. Run the visual loop
 
-Use your existing `wan27-image` and `wan27-video` skills directly, or use the wrapper:
+Use the plugin-local Wan wrappers through the visual-loop wrapper:
 
 ```bash
 python3 plugins/frontend-vibe-suite/scripts/run_visual_loop.py \
@@ -149,14 +149,16 @@ This plugin is intentionally explicit about runtime behavior.
 - optional env vars: `DASHSCOPE_BASE_URL`, `QWEN_OMNI_MODEL`
 - Python dependencies: standard library only
 - direct network egress: DashScope OpenAI-compatible API from `video_to_ui_brief.py`
-- indirect network egress: local Wan helper scripts invoked by `run_visual_loop.py`
+- direct DashScope image/video calls from plugin-local Wan wrappers
+- no cross-skill `.env` reads
+- no home-directory Wan script invocation
 
 See:
 
 - [docs/security-and-runtime.md](./docs/security-and-runtime.md)
 - [data/runtime-contract.json](./data/runtime-contract.json)
 
-## Scope in `0.0.3`
+## Scope in `0.0.4`
 
 - style brief generation
 - scenario-aware prompt generation across at least 20 UI situations

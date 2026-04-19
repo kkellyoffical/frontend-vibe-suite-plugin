@@ -45,6 +45,15 @@ class RepoFileTests(unittest.TestCase):
         required = {item["name"] for item in data.get("requiredEnv", [])}
         self.assertIn("DASHSCOPE_API_KEY", required)
 
+    def test_runtime_scripts_do_not_read_other_skill_env_files(self):
+        scripts = [
+            REPO_ROOT / "plugins" / "frontend-vibe-suite" / "scripts" / "video_to_ui_brief.py",
+            REPO_ROOT / "plugins" / "frontend-vibe-suite" / "scripts" / "run_visual_loop.py",
+        ]
+        combined = "\n".join(path.read_text(encoding="utf-8") for path in scripts)
+        self.assertNotIn(".codex/skills/wan27", combined)
+        self.assertNotIn(".claude/skills/wan27", combined)
+
     def test_release_tree_has_no_pyc(self):
         tracked = subprocess.check_output(
             ["git", "-C", str(REPO_ROOT), "ls-files"],

@@ -14,8 +14,8 @@ Canonical machine-readable metadata lives in [`../data/runtime-contract.json`](.
 ## Required Environment Variables
 
 - `DASHSCOPE_API_KEY`
-  - required for `scripts/video_to_ui_brief.py`
-  - used to authenticate calls to the DashScope OpenAI-compatible API for Qwen Omni video understanding
+  - required for `scripts/video_to_ui_brief.py`, `scripts/generate_wan_image.py`, and `scripts/generate_wan_video.py`
+  - used to authenticate calls to DashScope for both Qwen Omni translation and plugin-local Wan generation
 
 ## Optional Environment Variables
 
@@ -39,26 +39,24 @@ Current repository Python scripts use the standard library only.
 - `scripts/video_to_ui_brief.py`
   - calls the DashScope OpenAI-compatible endpoint
   - default base URL: `https://dashscope-intl.aliyuncs.com/compatible-mode/v1`
-
-### Indirect network calls
-
-- `scripts/run_visual_loop.py`
-  - calls local Wan helper scripts
-  - those local Wan scripts can contact DashScope according to their own implementation
+- `scripts/generate_wan_image.py`
+  - calls the DashScope image generation endpoint
+- `scripts/generate_wan_video.py`
+  - calls the DashScope async video generation endpoint
 
 ### User-provided URLs
 
 The workflow can transmit user-provided public media URLs when:
 
 - a public `video_url` is passed to `video_to_ui_brief.py`
-- public media URLs are passed through the wrapped Wan video flow
+- public media URLs are passed to the plugin-local Wan `i2v` flow
 
 ## Subprocess Behavior
 
 Only one repo script launches subprocesses:
 
 - `scripts/run_visual_loop.py`
-  - invokes local Wan helper scripts from `~/.codex/skills/wan27-image` and `~/.codex/skills/wan27-video`
+  - invokes plugin-local Wan helper scripts from `scripts/generate_wan_image.py` and `scripts/generate_wan_video.py`
 
 This repo does not:
 
@@ -74,7 +72,7 @@ The scripts read:
 - style briefs
 - prompt packs
 - translated UI briefs
-- `.env` files under the plugin and local Wan skill directories
+- the plugin-local `.env` file only
 
 The scripts write:
 
